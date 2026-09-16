@@ -1,0 +1,117 @@
+# Site information
+site_name: Implementatiehandleidingen Netwerkmodel
+site_url: https://istandaarden.github.io/implementatiehandleidingen_netwerkmodel/
+
+# Repository information
+repo_url: https://github.com/iStandaarden/implementatiehandleidingen-netwerkmodel
+repo_name: iStandaarden/implementatiehandleidingen-netwerkmodel
+
+# Theme configuration
+theme:
+  name: material
+  language: nl
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/file-sign
+  favicon: assets/file-sign-custom.png
+  custom_dir: docs/overrides
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: custom
+      accent: deep orange
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to system preference
+      primary: custom
+      accent: deep purple
+  features:
+    - navigation.top
+    # - header.autohide
+    # - navigation.sections
+    - navigation.instant
+    - navigation.tracking
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - navigation.indexes
+    - navigation.path
+    - search.highlight
+    - search.suggest
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - toc.follow
+    # - toc.integrate
+
+# plugins
+plugins:
+  - search
+  - glightbox
+
+# Custom CSS
+extra_css:
+  - css/zin.css
+  - css/mermaid-zoom.css
+  - css/print.css
+
+# extra JavaScript
+extra_javascript:
+  - assets/javascripts/svg-pan-zoom.min.js
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+  # - assets/javascripts/mermaid-panzoom.js
+  - assets/javascripts/mermaid-zoom.js
+
+extra:
+  # --- mike-versioning ---
+  # 'provider: mike' activeert de versie-dropdown in de header van Material.
+  # 'default: current' zorgt dat bezoekers die op de root-url landen (.../Afsprakenstelsel-iWlz/)
+  # altijd de geldige/huidige versie zien (via de 'current'-alias, zie de publish-site workflow).
+  # De 'future'-versie (in ontwikkeling) is alleen bereikbaar via de dropdown of een directe URL,
+  # nooit via de root.
+  version:
+    provider: mike
+    default: current
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-zoom
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# Navigation structure
+nav:
+  - Welkom: 
+      - index.md

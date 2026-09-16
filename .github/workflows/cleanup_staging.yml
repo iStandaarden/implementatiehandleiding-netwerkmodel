@@ -1,0 +1,31 @@
+name: cleanup staging preview
+on:
+  delete:
+    branches:
+      - 'staging*'
+
+permissions:
+  contents: write
+
+jobs:
+  remove-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Remove preview folder
+        run: |
+          BRANCH="${{ github.event.ref }}"
+          TARGET="staging/${BRANCH}"
+
+          if [ -d "$TARGET" ]; then
+            git config user.name github-actions[bot]
+            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+            git rm -r "$TARGET"
+            git commit -m "Remove preview for deleted branch: ${BRANCH}"
+            git push
+          else
+            echo "No preview folder found at $TARGET, nothing to remove."
+          fi

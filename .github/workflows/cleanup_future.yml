@@ -1,0 +1,54 @@
+name: Verwijder future-versie
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Typ exact "verwijder" om te bevestigen'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  delete-future:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.confirm == 'verwijder' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Configure git user for mike
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - run: pip install mkdocs mkdocs-material mkdocs-glightbox mkdocs-with-pdf mike
+
+      - name: Bepaal welke versie achter de 'future'-alias zit
+        id: lookup
+        run: |
+          git fetch origin gh-pages
+          VERSION=$(mike list --json --branch gh-pages 2>/dev/null | python3 -c "
+            import json, sys
+            data = json.load(sys.stdin)
+            for v in data:
+                if 'future' in v.get('aliases', []):
+                    print(v['version'])
+                    break
+            ")
+                      echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Verwijder future-versie (map) en -alias
+        if: ${{ steps.lookup.outputs.version != '' }}
+        run: mike delete "${{ steps.lookup.outputs.version }}" --push
+
+      - name: Geen future-versie gevonden
+        if: ${{ steps.lookup.outputs.version == '' }}
+        run: echo "Er is momenteel geen versie met alias 'future' — niets om te verwijderen."

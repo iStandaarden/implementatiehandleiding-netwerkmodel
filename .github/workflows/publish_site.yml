@@ -1,0 +1,104 @@
+name: publish site
+on:
+  push:
+    branches:
+      - main
+      - 'staging*'
+  workflow_dispatch:
+    # Handmatig starten via de Actions-tab. Kies bij "Use workflow from" de branch
+    # die je als 'future' wilt publiceren (bv. je staging-branch met de nieuwe versie).
+    # De inhoud van die gekozen branch wordt gebruikt, inclusief het future-version.txt
+    # bestand daarin.
+    inputs:
+      future_title:
+        description: "Label voor deze versie in de dropdown"
+        required: false
+        type: string
+        default: "(concept)"
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # mike heeft de volledige geschiedenis nodig om de gh-pages branch te kunnen bijwerken
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install system dependencies for WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            libgdk-pixbuf2.0-0 \
+            libffi-dev \
+            libcairo2 \
+            shared-mime-info
+
+      - run: pip install mkdocs-material mkdocs-glightbox mike
+
+      # --- Staging publicatie ---
+      - name: Build site
+        if: startsWith(github.ref, 'refs/heads/staging')
+        run: mkdocs build --site-dir site
+
+      - name: Deploy staging branch (staging* → /staging/<branch-name>)
+        if: startsWith(github.ref, 'refs/heads/staging')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          destination_dir: staging/${{ github.ref_name }}
+          keep_files: true
+
+      # --- Main: via mike, alias 'current' (de geldige versie, ook default op de root-URL) ---
+      - name: Configure git user for mike
+        if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Read current-version
+        if: github.ref == 'refs/heads/main'
+        id: current_version
+        run: echo "value=$(tr -d '[:space:]' < current-version.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy current version with mike (main → /<versie>/, alias current → /)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mike deploy --push --update-aliases \
+            --title "${{ steps.current_version.outputs.value }} (current)" \
+            "${{ steps.current_version.outputs.value }}" current
+          mike set-default --push current
+
+      # --- Future: alleen bij handmatige trigger, vanaf de door jou gekozen branch ---
+      # Bewust GEEN automatische trigger: de future-versie groeit op je staging-branch(es)
+      # zoals altijd (onzichtbaar in de dropdown), en komt pas in de dropdown zodra jij
+      # deze workflow handmatig start vanaf die branch.
+      - name: Read future-version
+        if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
+        id: future_version
+        run: echo "value=$(tr -d '[:space:]' < future-version.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy future version with mike (future → /<versie>/, alias future, geen default)
+        if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
+        run: |
+          mike deploy --push --update-aliases \
+            --title "${{ steps.future_version.outputs.value }} ${{ inputs.future_title }}" \
+            "${{ steps.future_version.outputs.value }}" future
