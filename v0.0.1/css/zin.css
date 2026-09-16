@@ -1,0 +1,86 @@
+:root > * {
+  --md-primary-fg-color:        #026e06;
+  --md-primary-fg-color--light: #06950a;
+  --md-primary-fg-color--dark:  #06950a;
+}
+
+.mermaid svg {
+  max-width: 100% !important;
+  width: 1200px;
+  height: auto;
+}
+
+.md-banner {
+    background-color: #fff;
+    color: var(--md-footer-fg-color);
+    overflow: auto;
+}
+
+.md-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0px;
+}
+
+.md-header__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0;
+  background-color: #fff; /* pas aan naar wens */
+}
+
+.md-header__banner-image {
+  max-height: 4.2rem; /* pas naar smaak aan */
+  width: auto;
+}
+
+.md-header__inner {
+  position: relative; /* nodig als referentiepunt voor de absolute afbeelding */
+}
+
+.md-header__center-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 2.2rem; /* pas aan op de hoogte van je header */
+  pointer-events: none; /* voorkomt dat hij klikken op de titel eronder blokkeert */
+}
+
+/* Optioneel: verberg 'm op kleine schermen, waar de header al vol staat */
+@media screen and (max-width: 76.1875em) {
+  .md-header__center-image {
+    display: none;
+  }
+}
+
+/* Shrink the prev/next navigation footer */
+.md-footer__inner {
+  min-height: auto !important;
+  padding: 0.05rem 0.6rem !important;  /* was 0.4rem */
+}
+
+.md-footer__title {
+  font-size: 0.7rem !important;
+  margin-top: 0.15rem !important;
+}
+
+.md-footer__direction {
+  font-size: 0.6rem !important;
+}
+
+.md-footer__button.md-icon svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+/* Shrink the bottom copyright bar */
+.md-footer-meta__inner {
+  padding: 0.3rem 0.6rem !important;
+}
+
+.md-copyright {
+  font-size: 0.65rem !important;
+}
