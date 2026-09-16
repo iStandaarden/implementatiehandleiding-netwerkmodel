@@ -28,7 +28,7 @@
   justify-content: center;
   align-items: center;
   padding: 0.4rem 0;
-  background-color: #fff; /* pas aan naar wens */
+  background-color: #fff;
 }
 
 .md-header__banner-image {
@@ -41,7 +41,7 @@
 }
 
 .md-header__center-image {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
