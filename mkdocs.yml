@@ -115,3 +115,5 @@ markdown_extensions:
 nav:
   - Welkom: 
       - index.md
+  - Zorgaanbieder:
+      - zorgaanbieder/ta-zorgaanbieder.md
