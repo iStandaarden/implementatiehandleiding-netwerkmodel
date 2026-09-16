@@ -1,10 +1,10 @@
 # Site information
 site_name: Implementatiehandleidingen Netwerkmodel
-site_url: https://istandaarden.github.io/implementatiehandleidingen-netwerkmodel/
+site_url: https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/
 
 # Repository information
-repo_url: https://github.com/iStandaarden/implementatiehandleidingen-netwerkmodel
-repo_name: iStandaarden/implementatiehandleidingen-netwerkmodel
+repo_url: https://github.com/iStandaarden/implementatiehandleiding-netwerkmodel
+repo_name: iStandaarden/implementatiehandleiding-netwerkmodel
 
 # Theme configuration
 theme:
