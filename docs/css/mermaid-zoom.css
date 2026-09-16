@@ -1,0 +1,77 @@
+/* Zoombare mermaid-diagrammen — hoort bij assets/javascripts/mermaid-zoom.js. */
+
+/* De fence-bron (pre.mermaid-zoom) wordt door mermaid-zoom.js vervangen door
+   een gerenderd diagram; tot die tijd (en daarna, als stille fallback) is de
+   bron verborgen. Bij een renderfout maakt het script de bron weer zichtbaar. */
+pre.mermaid-zoom,
+div.mermaid-zoom {
+  display: none;
+}
+
+/* Container om het gerenderde diagram. Vaste witte achtergrond zodat het
+   diagram ook in het donkere kleurenschema (slate) leesbaar blijft. */
+.mermaid-zoom-blok {
+  position: relative;
+  margin: 1em 0;
+  border: .05rem solid var(--md-default-fg-color--lightest, #ddd);
+  border-radius: .2rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.mermaid-zoom-blok:fullscreen {
+  background: #fff;
+  padding: 1rem;
+}
+
+/* Fallback wanneer de Fullscreen API niet beschikbaar is of wordt geweigerd. */
+.mermaid-zoom-blok--maxi {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  margin: 0;
+  border-radius: 0;
+  height: auto !important;
+  padding: 1rem;
+}
+
+.mermaid-zoom-blok__stage {
+  width: 100%;
+  height: 100%;
+}
+
+.mermaid-zoom-blok__stage svg {
+  display: block;
+}
+
+.mermaid-zoom-blok__fs {
+  position: absolute;
+  top: .4rem;
+  right: .4rem;
+  z-index: 2;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: .05rem solid #ddd;
+  border-radius: .2rem;
+  background: #fff;
+  color: #555;
+  font-size: .9rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mermaid-zoom-blok__fs:hover {
+  color: var(--md-accent-fg-color, #526cfe);
+  border-color: currentColor;
+}
+
+.mermaid-zoom-blok__hint {
+  position: absolute;
+  left: .6rem;
+  bottom: .3rem;
+  z-index: 2;
+  font-size: .55rem;
+  color: #777;
+  pointer-events: none;
+}
