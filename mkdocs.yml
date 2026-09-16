@@ -115,5 +115,7 @@ markdown_extensions:
 nav:
   - Welkom: 
       - index.md
+      - Versiebeheer: versiebeheer.md
+      - Release notes: release-notes.md
   - Zorgaanbieder:
       - zorgaanbieder/ta-zorgaanbieder.md
