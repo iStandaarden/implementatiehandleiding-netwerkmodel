@@ -8,7 +8,7 @@ a:hover {
   text-decoration: underline;
 }
 
-a[href^="http"]:not([href*="istandaarden.github.io"])::before { 
+a[href^="http"]:not([href*="istandaarden.github.io/implementatiehandleiding-netwerkmodel"])::before { 
 /*a[href^="http"]:not([href*="127.0.0.1:8000/Afsprakenstelsel-iWlz"])::before { */
   content: "\2197"; /* ↗ arrow */
   display: inline-block;
