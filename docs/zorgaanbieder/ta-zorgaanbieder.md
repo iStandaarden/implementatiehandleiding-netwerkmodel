@@ -19,7 +19,7 @@ Deze implementatiehandleiding beschrijft hoe je systemen aansluit op het iWlz-ne
 Het Afsprakenstelsel iWlz-netwerkmodel beschrijft de afspraken, architectuur en technische specificaties die nodig zijn om het iWlz-netwerkmodel te implementeren, te beheren en te laten functioneren. Lees voor implementatie in ieder geval:
 
 - [Introductiepagina](https://istandaarden.github.io/Afsprakenstelsel-iWlz/)
-- [Achtergrond en toelichting](https://istandaarden.github.io/Afsprakenstelsel-iWlz/inleiding/achtergrond_toelichting/)
+- [Achtergrond en toelichting](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/inleiding/achtergrond_toelichting/)
 - [Randvoorwaarden](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/randvoorwaarden/)
 - [Ontwerpkeuzes](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/ontwerpkeuzes/)
 - [Uitwisselprofiel Indicatie](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/)
@@ -126,7 +126,7 @@ De gegevens uit je huidige AW-berichten verdelen zich over drie registers. Gebru
 | **AW39** (mutatie/beëindiging + aanvraag, ZA → ZK) | `MutatieZorgzwaartepakket` (mutatie/einde, leveringsstatus) en `Aanvraag` + `AanvraagInstelling` (aanvraag aangepaste toewijzing) | **Leveringsregister** (Uitstelperiode, Afstel, Verzoek, VerzoekAanbieder) |
 | **AW34 / AW36 / AW310** (retour) | Ontvangstbevestiging en retourcodes | Vervalt: bevestiging op de notificatie + foutmelding (§3.10) |
 
-De officiële, gedetailleerde mapping voor de toewijzing is de Excel **"Mapping Bemiddelingsregister - AW33"** (versie 1.4.2, 19 juni 2025) bij de release [iWlz Bemiddelingsregister 1](https://www.istandaarden.nl/iwlz/releases/iwlz-bemiddeling-1). Deze mapping beschrijft hoe de gegevens uit het Indicatieregister én het Bemiddelingsregister overeenkomen met de AW33. De mapping is gebaseerd op de GraphQL-koppelvlakken Indicatieregister 1.4 en Bemiddelingsregister 1.1.0 en de AW33-schemadefinitie (iWlz 2.4.3).
+De officiële, gedetailleerde mapping voor de toewijzing is de Excel **"Mapping Bemiddelingsregister - AW33"** (versie 1.4.2, 19 juni 2025) bij de release [iWlz Bemiddelingsregister 1](https://www.istandaarden.nl/domain/iwlz/specificaties/release-1). Deze mapping beschrijft hoe de gegevens uit het Indicatieregister én het Bemiddelingsregister overeenkomen met de AW33. De mapping is gebaseerd op de GraphQL-koppelvlakken Indicatieregister 1.4 en Bemiddelingsregister 1.1.0 en de AW33-schemadefinitie (iWlz 2.4.3).
 
 > ℹ️
 > De AW33-mapping dekt **beide** registers. Het tabblad AW33 bevat een kolom "Register" die elk AW33-veld toewijst aan het Indicatieregister of het Bemiddelingsregister. In versie 1.4.2 mapt de mapping circa 78 velden naar het **Indicatieregister** (waaronder alle BRP-cliëntgegevens, en het cliëntadres en telefoon) en circa 57 naar het **Bemiddelingsregister** (waaronder contactpersonen, regiehouder en de toewijzing zelf). Je hoeft dus geen aparte indicatie-mapping te maken: het Indicatieregister zit al in dit bestand, en is qua omvang zelfs de grootste bron. De twee uitgangspunten in de mapping: BRP-cliëntgegevens komen uit het Indicatieregister. Contactinformatie van de cliënt en relatiegegevens komen uit het Bemiddelingsregister. Het `wlzIndicatieID` blijft daarnaast het sleutelveld waarmee je vanuit het Bemiddelingsregister de actuele indicatie-inhoud in het Indicatieregister raadpleegt (zie §3.7).
@@ -154,8 +154,8 @@ Deelname aan het iWlz-netwerkmodel vereist de onderstaande stappen, in de aanbev
 
 Vergelijk je huidige estafette-implementatie met het netwerkmodel. Pas je software waar nodig aan. Gebruik daarvoor concreet:
 
-1. **Gegevens (veld-voor-veld):** de mapping **"Mapping Bemiddelingsregister - AW33"** bij [iWlz Bemiddelingsregister 1](https://www.istandaarden.nl/iwlz/releases/iwlz-bemiddeling-1). Hierin staat hoe de gegevens uit het Indicatie- en Bemiddelingsregister overeenkomen met de AW33.
-2. **Informatiemodel (concepten):** vergelijk het [estafette-informatiemodel iWlz 2.4](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/) dat je nu in productie hebt met de netwerkmodel-registers ([Bemiddelingsregister 1](https://www.istandaarden.nl/iwlz/releases/iwlz-bemiddeling-1), [Indicatieregister](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/), [Leveringsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/)). Het overzicht in §2.2 helpt bij de inhoudelijke verschillen.
+1. **Gegevens (veld-voor-veld):** de mapping **"Mapping Bemiddelingsregister - AW33"** bij [iWlz Bemiddelingsregister 1](https://www.istandaarden.nl/domain/iwlz/specificaties/release-1). Hierin staat hoe de gegevens uit het Indicatie- en Bemiddelingsregister overeenkomen met de AW33.
+2. **Informatiemodel (concepten):** vergelijk het [estafette-informatiemodel iWlz 2.4](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/) dat je nu in productie hebt met de netwerkmodel-registers ([Bemiddelingsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/), [Indicatieregister](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/), [Leveringsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/)). Het overzicht in §2.2 helpt bij de inhoudelijke verschillen.
 3. **Proces en regels:** beoordeel of je procesafhandeling past bij het wegvallen van de estafette-volgorde en de retourberichten (§2.1 en §3.10).
 
 ### 3.2 Aansluiten bij VECOZO
@@ -379,7 +379,7 @@ Let bij het bouwen op de eisen uit [GraphQL over HTTP](https://istandaarden.gith
 
 ### 3.8 Inrichten van het Leveringsregister
 
-Het [Leveringsregister 1](https://www.istandaarden.nl/iwlz/portlet-naar-de-releases-in-ontwikkeling/iwlz-leveringsregister-1) is het register waarin je als zorgaanbieder de zorglevering registreert. Het vervangt de berichten **AW35** (aanvang) en **AW39** (mutatie en beëindiging, inclusief de aanvraag aangepaste toewijzing).
+Het [Leveringsregister 1](https://www.istandaarden.nl/algemeen/over-leveringsregister-1-0) is het register waarin je als zorgaanbieder de zorglevering registreert. Het vervangt de berichten **AW35** (aanvang) en **AW39** (mutatie en beëindiging, inclusief de aanvraag aangepaste toewijzing).
 
 > ⚠️
 > Het Leveringsregister 1 is op dit moment een **Release Candidate** (versie 1.0-rc1, 29-01-2026). De raadpleeg-use-cases en toegangscontroles zijn nog als concept gepubliceerd. Schema en queries kunnen nog wijzigen. Houd dit voorbehoud aan bij je implementatie.
