@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#technische-aansluiting-zorgaanbieder" class="md-skip">
+        <a href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -604,34 +604,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#technische-aansluiting-zorgaanbieder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technische aansluiting Zorgaanbieder
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Technische aansluiting Zorgaanbieder">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inleiding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Inleiding
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -660,7 +632,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-inleiding_1" class="md-nav__link">
+  <a href="#1-inleiding" class="md-nav__link">
     <span class="md-ellipsis">
       
         1. Inleiding
@@ -921,34 +893,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#technische-aansluiting-zorgaanbieder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technische aansluiting Zorgaanbieder
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Technische aansluiting Zorgaanbieder">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inleiding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Inleiding
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -977,7 +921,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-inleiding_1" class="md-nav__link">
+  <a href="#1-inleiding" class="md-nav__link">
     <span class="md-ellipsis">
       
         1. Inleiding
@@ -1225,56 +1169,6 @@
 
   <h1>Ta zorgaanbieder</h1>
 
-<h2 id="technische-aansluiting-zorgaanbieder">Technische aansluiting Zorgaanbieder<a class="headerlink" href="#technische-aansluiting-zorgaanbieder" title="Permanent link">¶</a></h2>
-<h3 id="1-inleiding">1. Inleiding<a class="headerlink" href="#1-inleiding" title="Permanent link">¶</a></h3>
-<pre class="mermaid-zoom"><code>---
-config:
-  theme: base
-  themeVariables:
-    background: "#ffffff"
-    primaryColor: "#ffffff"
-    primaryTextColor: "#1e3a5f"
-    primaryBorderColor: "#d0d7de"
-    clusterBkg: "#ffffff"
-    clusterBorder: "#d8dee4"
-    edgeLabelBackground: "#ffffff"
-    lineColor: "#1f4e79"
-    fontFamily: "Helvetica, Arial, sans-serif"
----
-flowchart TB
-    subgraph EST["ESTAFETTEMODEL &amp;middot; iWlz 2.4 (productie)"]
-        direction LR
-        ZK["Zorgkantoor"]
-        ZA1["Zorgaanbieder"]
-        ZK -- "AW33 &amp;middot; AW35 &amp;middot; AW39-toewijzing &amp;middot; aanvang &amp;middot; mutatie" --&gt; ZA1
-        ZA1 -. "AW34 &amp;middot; AW36 &amp;middot; AW310-retourbericht" .-&gt; ZK
-        CAP1["puntsgewijze berichten, verplicht retour, vaste volgorde"]
-    end
-
-    subgraph NET["NETWERKMODEL"]
-        direction LR
-        ZA2["Zorgaanbieder"]
-        BEM[("Bemiddelingsregister")]
-        IND[("Indicatieregister")]
-        LEV[("Leveringsregister")]
-        ZA2 -- "raadplegen" --&gt; BEM
-        ZA2 -- "raadplegen &amp;middot; wlzIndicatieID" --&gt; IND
-        ZA2 -- "registreren" --&gt; LEV
-        BEM -. "notificatie" .-&gt; ZA2
-        CAP2["Notificatie uit het Leveringsregister naar zorgkantoor of andere zorgaanbieder."]
-    end
-
-    EST ==&gt; NET
-
-    classDef actor fill:#1e3a5f,stroke:#1e3a5f,color:#ffffff,font-weight:bold
-    classDef register fill:#eaf2fb,stroke:#1f4e79,color:#1f4e79,font-weight:bold
-    classDef caption fill:none,stroke:none,color:#333333,font-size:13px
-    class ZK,ZA1,ZA2 actor
-    class BEM,IND,LEV register
-    class CAP1,CAP2 caption
-
-    linkStyle 0,1 stroke:#c2185b,color:#c2185b,font-weight:bold
-    linkStyle 5 stroke:#b8860b,color:#b8860b,font-weight:bold</code></pre>
 <h2 id="implementatiehandleiding-technische-aansluiting-zorgaanbieder">Implementatiehandleiding technische aansluiting zorgaanbieder<a class="headerlink" href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" title="Permanent link">¶</a></h2>
 <blockquote>
 <p>ℹ️
@@ -1288,7 +1182,7 @@ In dit artikel beschrijven we de onderdelen die nodig zijn om als zorgaanbieder 
 <li>Hoofdstuk 4 beschrijft het testen.</li>
 <li>Hoofdstuk 5 bevat de openstaande punten en aannames die we nog toetsen.</li>
 </ul>
-<h2 id="1-inleiding_1">1. Inleiding<a class="headerlink" href="#1-inleiding_1" title="Permanent link">¶</a></h2>
+<h2 id="1-inleiding">1. Inleiding<a class="headerlink" href="#1-inleiding" title="Permanent link">¶</a></h2>
 <p>Deze implementatiehandleiding beschrijft hoe je systemen aansluit op het iWlz-netwerkmodel. De handleiding is bedoeld voor softwareleveranciers en voor zorgaanbieders die zelf software ontwikkelen en beheren. De specificaties (informatiemodel en ondersteunende documentatie) staan op <a href="https://www.istandaarden.nl/domain/iwlz">iStandaarden</a>.</p>
 <p>Het Afsprakenstelsel iWlz-netwerkmodel beschrijft de afspraken, architectuur en technische specificaties die nodig zijn om het iWlz-netwerkmodel te implementeren, te beheren en te laten functioneren. Lees voor implementatie in ieder geval:</p>
 <ul>
