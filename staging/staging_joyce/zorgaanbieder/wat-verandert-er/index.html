@@ -714,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testen-aansluiting.md" class="md-nav__link">
+      <a href="../testen-aansluiting/" class="md-nav__link">
         
   
   
@@ -901,7 +901,7 @@ Figuur 1 - Estafettemodel versus netwerkmodel: berichten met retour worden regis
 <li>De AW33 vervalt. De toewijzingsinformatie staat in het Indicatie- en Bemiddelingsregister. De zorgaanbieder raadpleegt deze informatie. In plaats van de AW33 ontvangt de zorgaanbieder een notificatie.</li>
 <li>De regiehouder (dossierhouder of coördinator zorg thuis) is actueel raadpleegbaar in het Bemiddelingsregister, inclusief tussentijdse wisselingen. In het estafettemodel zijn die tussentijdse wisselingen niet beschikbaar.</li>
 <li>De informatieve zorgtoewijzing is raadpleegbaar. Het zorgkantoor verstuurt deze toewijzing niet meer automatisch.</li>
-<li>Het retourbericht (AW34/AW36/AW310) vervalt: een bevestiging op de notificatie en foutmeldingen komen ervoor in de plaats (§1.10).</li>
+<li>Het retourbericht (AW34/AW36/AW310) vervalt: een bevestiging op de notificatie en foutmeldingen komen ervoor in de plaats (artikel: Implementaitestappen &gt; §1.10).</li>
 <li>Het XML-bericht is vervangen door een GraphQL-query.</li>
 <li>Contactgegevens van cliënt en contactpersonen zijn raadpleegbaar in het Bemiddelingsregister, en op termijn in het Leveringsregister.</li>
 <li>Overlappende leveringen van andere aanbieders zijn met het Leveringsregister raadpleegbaar (LRA0005).</li>
@@ -975,28 +975,28 @@ Figuur 1 - Estafettemodel versus netwerkmodel: berichten met retour worden regis
 <tr>
 <td><strong>AW34 / AW36 / AW310</strong> (retour)</td>
 <td>Ontvangstbevestiging en retourcodes</td>
-<td>Vervalt: bevestiging op de notificatie + foutmelding (§1.10)</td>
+<td>Vervalt: bevestiging op de notificatie + foutmelding (artikel: Implementatiestappen &gt; §1.10)</td>
 </tr>
 </tbody>
 </table>
 <p>De officiële, gedetailleerde mapping voor de toewijzing is de Excel <strong>"Mapping Bemiddelingsregister - AW33"</strong> (versie 1.4.2, 19 juni 2025) bij de release <a href="https://www.istandaarden.nl/domain/iwlz/specificaties/release-1">iWlz Bemiddelingsregister 1</a>. Deze mapping beschrijft hoe de gegevens uit het Indicatieregister én het Bemiddelingsregister overeenkomen met de AW33. De mapping is gebaseerd op de GraphQL-koppelvlakken Indicatieregister 1.4 en Bemiddelingsregister 1.1.0 en de AW33-schemadefinitie (iWlz 2.4.3).</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>De AW33-mapping dekt <strong>beide</strong> registers. Het tabblad AW33 bevat een kolom "Register" die elk AW33-veld toewijst aan het Indicatieregister of het Bemiddelingsregister. In versie 1.4.2 mapt de mapping circa 78 velden naar het <strong>Indicatieregister</strong> (waaronder alle BRP-cliëntgegevens, en het cliëntadres en telefoon) en circa 57 naar het <strong>Bemiddelingsregister</strong> (waaronder contactpersonen, regiehouder en de toewijzing zelf). Je hoeft dus geen aparte indicatie-mapping te maken: het Indicatieregister zit al in dit bestand, en is qua omvang zelfs de grootste bron. De twee uitgangspunten in de mapping: BRP-cliëntgegevens komen uit het Indicatieregister. Contactinformatie van de cliënt en relatiegegevens komen uit het Bemiddelingsregister. Het <code>wlzIndicatieID</code> blijft daarnaast het sleutelveld waarmee je vanuit het Bemiddelingsregister de actuele indicatie-inhoud in het Indicatieregister raadpleegt (zie §1.7).</p>
+<p>De AW33-mapping dekt <strong>beide</strong> registers. Het tabblad AW33 bevat een kolom "Register" die elk AW33-veld toewijst aan het Indicatieregister of het Bemiddelingsregister. In versie 1.4.2 mapt de mapping circa 78 velden naar het <strong>Indicatieregister</strong> (waaronder alle BRP-cliëntgegevens, en het cliëntadres en telefoon) en circa 57 naar het <strong>Bemiddelingsregister</strong> (waaronder contactpersonen, regiehouder en de toewijzing zelf). Je hoeft dus geen aparte indicatie-mapping te maken: het Indicatieregister zit al in dit bestand, en is qua omvang zelfs de grootste bron. De twee uitgangspunten in de mapping: BRP-cliëntgegevens komen uit het Indicatieregister. Contactinformatie van de cliënt en relatiegegevens komen uit het Bemiddelingsregister. Het <code>wlzIndicatieID</code> blijft daarnaast het sleutelveld waarmee je vanuit het Bemiddelingsregister de actuele indicatie-inhoud in het Indicatieregister raadpleegt (zie artikel: Implementatiestappen &gt; §1.7).</p>
 </div>
 <h3 id="14-samenvatting-van-de-benodigde-aanpassingen">1.4 Samenvatting van de benodigde aanpassingen<a class="headerlink" href="#14-samenvatting-van-de-benodigde-aanpassingen" title="Permanent link">¶</a></h3>
 <p>Hieronder staat wat een softwareleverancier aanpast of bouwt, met verwijzing naar de stappen in hoofdstuk 3. Dit is de volledige scope, niet alleen het wegvallen van de berichten.</p>
 <ul>
-<li><strong>Aansluiten.</strong> VECOZO-aansluiting, systeemcertificaten (test en productie), IP-registratie, en endpoint-registratie in het tijdelijk adresboek (§1.2, §1.3, §1.4).</li>
-<li><strong>Autoriseren.</strong> Tokens aanvragen namens de zorgaanbieder op AGB-basis (actor), met de juiste scopes en audience; al het verkeer loopt via de PEP (§1.5).</li>
-<li><strong>Notificaties ontvangen.</strong> Een resource-endpoint voor notificaties uit het Bemiddelingsregister, en op termijn uit het Leveringsregister (§1.6.1).</li>
-<li><strong>Raadplegen.</strong> Een GraphQL-client voor de keten Bemiddelingsregister -&gt; <code>wlzIndicatieID</code> -&gt; Indicatieregister, conform de query-templates en GraphQL-over-HTTP (§1.7).</li>
-<li><strong>Leveringsregister vullen en notificeren.</strong> De zorglevering registreren en de bijbehorende notificaties versturen (§1.6.2, §1.8, §1.9).</li>
-<li><strong>Melden.</strong> Foutmeldingen afhandelen; alleen de bronhouder registreert een melding-endpoint (§1.6.3).</li>
-<li><strong>Foutafhandeling.</strong> Synchrone respons en foutmelding in plaats van het retourbericht (§1.10).</li>
-<li><strong>Tracelogging.</strong> <code>X-B3-TraceId</code> en <code>X-B3-SpanId</code> conform RFC0022a (§1.11).</li>
+<li><strong>Aansluiten.</strong> VECOZO-aansluiting, systeemcertificaten (test en productie), IP-registratie, en endpoint-registratie in het tijdelijk adresboek (zie artikel: Implementatiestappen &gt; §1.2, §1.3, §1.4).</li>
+<li><strong>Autoriseren.</strong> Tokens aanvragen namens de zorgaanbieder op AGB-basis (actor), met de juiste scopes en audience; al het verkeer loopt via de PEP (zie artikel: Implementatiestappen &gt; §1.5).</li>
+<li><strong>Notificaties ontvangen.</strong> Een resource-endpoint voor notificaties uit het Bemiddelingsregister, en op termijn uit het Leveringsregister (zie artikel: Implementatiestappen &gt; §1.6.1).</li>
+<li><strong>Raadplegen.</strong> Een GraphQL-client voor de keten Bemiddelingsregister -&gt; <code>wlzIndicatieID</code> -&gt; Indicatieregister, conform de query-templates en GraphQL-over-HTTP (zie artikel: Implementatiestappen &gt;§1.7).</li>
+<li><strong>Leveringsregister vullen en notificeren.</strong> De zorglevering registreren en de bijbehorende notificaties versturen (zie artikel: Implementatiestappen &gt; §1.6.2, §1.8, §1.9).</li>
+<li><strong>Melden.</strong> Foutmeldingen afhandelen; alleen de bronhouder registreert een melding-endpoint (zie artikel: Implementatiestappen &gt; §1.6.3).</li>
+<li><strong>Foutafhandeling.</strong> Synchrone respons en foutmelding in plaats van het retourbericht (zie artikel: Implementatiestappen &gt; §1.10).</li>
+<li><strong>Tracelogging.</strong> <code>X-B3-TraceId</code> en <code>X-B3-SpanId</code> conform RFC0022a (zie artikel: Implementatiestappen &gt; §1.11).</li>
 <li><strong>Testen.</strong> Testomgeving, testcertificaat, fictieve BSN's en een onboarding-testdataset (§4).</li>
-<li><strong>Berichten uitfaseren.</strong> Genereren en verwerken van AW33/AW34, AW35/AW36 en AW39/AW310 vervalt. Let op de overgangsfase: zolang niet alle aanbieders zijn aangesloten, blijft <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/silvester/">Silvester</a> voor niet-aangesloten partijen AW33-berichten genereren (§1.1, §1.1).</li>
+<li><strong>Berichten uitfaseren.</strong> Genereren en verwerken van AW33/AW34, AW35/AW36 en AW39/AW310 vervalt. Let op de overgangsfase: zolang niet alle aanbieders zijn aangesloten, blijft <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/silvester/">Silvester</a> voor niet-aangesloten partijen AW33-berichten genereren (zie artikel: Wat verandert er &gt; §1.1, en artikel: Implementatiestappen &gt; §1.1).</li>
 </ul>
 
 

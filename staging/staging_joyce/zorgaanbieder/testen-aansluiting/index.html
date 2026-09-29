@@ -5,27 +5,29 @@
       
       
       
-        <link rel="canonical" href="https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/technische-aansluiting-zorgaanbieder/wat-verandert-er/">
+        <link rel="canonical" href="https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/testen-aansluiting/">
       
+      
+        <link rel="prev" href="../implementatiestappen/">
       
       
       
         
       
       
-      <link rel="icon" href="../../../assets/cog-transfer-outline-custom.png">
+      <link rel="icon" href="../../assets/cog-transfer-outline-custom.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Wat verandert er - Implementatiehandleidingen Netwerkmodel</title>
+        <title>Testen aansluiting - Implementatiehandleidingen Netwerkmodel</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -44,19 +46,19 @@
       
     
     
-      <link rel="stylesheet" href="../../../css/zin.css">
+      <link rel="stylesheet" href="../../css/zin.css">
     
-      <link rel="stylesheet" href="../../../css/mermaid-zoom.css">
+      <link rel="stylesheet" href="../../css/mermaid-zoom.css">
     
-      <link rel="stylesheet" href="../../../css/print.css">
+      <link rel="stylesheet" href="../../css/print.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -85,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2-wat-verandert-er-voor-de-zorgaanbieder-en-diens-softwareleverancier" class="md-skip">
+        <a href="#testen-aansluiting-zorgaanbieder" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -97,7 +99,7 @@
             
             
 <div style="justify-content:center; ">
-    <img src="../../../assets/zinbanner.png" alt="ZIN banner" style="max-width:100%; height:auto; display:block; margin:0 auto;">
+    <img src="../../assets/zinbanner.png" alt="ZIN banner" style="max-width:100%; height:auto; display:block; margin:0 auto;">
 </div>
 
           </div>
@@ -117,7 +119,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Implementatiehandleidingen Netwerkmodel" class="md-header__button md-logo" aria-label="Implementatiehandleidingen Netwerkmodel" data-md-component="logo">
+    <a href="../.." title="Implementatiehandleidingen Netwerkmodel" class="md-header__button md-logo" aria-label="Implementatiehandleidingen Netwerkmodel" data-md-component="logo">
           
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17v-3h3v-2l4 3.5-4 3.5v-2zm2 1v3h-3v2l-4-3.5 4-3.5v2zM12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m9.66-5.27-2-3.46c-.12-.22-.38-.31-.61-.22l-2.49 1c-.51-.41-1.06-.74-1.69-1l-.37-2.63A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.26-1.17.59-1.69 1L5 5.05c-.23-.09-.5 0-.61.22l-2 3.46c-.13.21-.08.49.11.64L4.57 11l-.07 1 .07 1-2.11 1.63c-.2.15-.25.43-.12.64l2 3.46c.11.27.4.38.66.27l2.5-1c.24.19.5.37.76.53l1.65-1.4c-.77-.33-1.45-.82-2-1.45l-2.41 1-.77-1.3L6.8 13.8a5.55 5.55 0 0 1 0-3.6L4.69 8.65l.75-1.3 2.41 1c.78-.9 1.83-1.53 3-1.78l.4-2.57h1.5l.37 2.62c1.17.24 2.22.88 3 1.77l2.41-1 .75 1.3-2.08 1.51c.09.26.16.53.2.8h2l2.1-1.63a.48.48 0 0 0 .16-.64M12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m0-6c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2"></path></svg>
@@ -137,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wat verandert er
+              Testen aansluiting
             
           </span>
         </div>
@@ -257,7 +259,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -275,11 +277,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -321,7 +325,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Implementatiehandleidingen Netwerkmodel" class="md-nav__button md-logo" aria-label="Implementatiehandleidingen Netwerkmodel" data-md-component="logo">
+    <a href="../.." title="Implementatiehandleidingen Netwerkmodel" class="md-nav__button md-logo" aria-label="Implementatiehandleidingen Netwerkmodel" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17v-3h3v-2l4 3.5-4 3.5v-2zm2 1v3h-3v2l-4-3.5 4-3.5v2zM12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m9.66-5.27-2-3.46c-.12-.22-.38-.31-.61-.22l-2.49 1c-.51-.41-1.06-.74-1.69-1l-.37-2.63A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.26-1.17.59-1.69 1L5 5.05c-.23-.09-.5 0-.61.22l-2 3.46c-.13.21-.08.49.11.64L4.57 11l-.07 1 .07 1-2.11 1.63c-.2.15-.25.43-.12.64l2 3.46c.11.27.4.38.66.27l2.5-1c.24.19.5.37.76.53l1.65-1.4c-.77-.33-1.45-.82-2-1.45l-2.41 1-.77-1.3L6.8 13.8a5.55 5.55 0 0 1 0-3.6L4.69 8.65l.75-1.3 2.41 1c.78-.9 1.83-1.53 3-1.78l.4-2.57h1.5l.37 2.62c1.17.24 2.22.88 3 1.77l2.41-1 .75 1.3-2.08 1.51c.09.26.16.53.2.8h2l2.1-1.63a.48.48 0 0 0 .16-.64M12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m0-6c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2"></path></svg>
@@ -378,7 +382,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href="../.." class="md-nav__link ">
               
   
   
@@ -422,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../welkom/versiebeheer/" class="md-nav__link">
+      <a href="../../welkom/versiebeheer/" class="md-nav__link">
         
   
   
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../welkom/release-notes/" class="md-nav__link">
+      <a href="../../welkom/release-notes/" class="md-nav__link">
         
   
   
@@ -482,6 +486,8 @@
       
   
   
+    
+  
   
   
     
@@ -493,24 +499,29 @@
       
         
       
+        
+      
+        
+      
     
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -528,13 +539,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -553,98 +564,8 @@
   
   
   
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2">
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Technische aansluiting zorgaanbieder
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Technische aansluiting zorgaanbieder
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../../technische_aansluiting_zorgaanbieder/index.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    None
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technische_aansluiting_zorgaanbieder/wat-verandert-er.md" class="md-nav__link">
+      <a href="../wat-verandert-er/" class="md-nav__link">
         
   
   
@@ -672,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technische_aansluiting_zorgaanbieder/implementatiestappen.md" class="md-nav__link">
+      <a href="../implementatiestappen/" class="md-nav__link">
         
   
   
@@ -697,10 +618,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../technische_aansluiting_zorgaanbieder/testen_aansluiting.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -716,13 +646,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -753,75 +676,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Inhoudsopgave
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#2-wat-verandert-er-voor-de-zorgaanbieder-en-diens-softwareleverancier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Wat verandert er voor de zorgaanbieder (en diens softwareleverancier)?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Wat verandert er voor de zorgaanbieder (en diens softwareleverancier)?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-van-estafette-naar-netwerk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 Van estafette naar netwerk
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-inhoudelijke-wijzigingen-in-het-informatiemodel-los-van-de-overstap-op-registers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 Inhoudelijke wijzigingen in het informatiemodel (los van de overstap op registers)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-gegevensmapping-op-hoofdlijnen" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 Gegevensmapping op hoofdlijnen
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-samenvatting-van-de-benodigde-aanpassingen" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 Samenvatting van de benodigde aanpassingen
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -847,168 +703,18 @@
   
 
 
-  <h1>Wat verandert er</h1>
-
-<h2 id="2-wat-verandert-er-voor-de-zorgaanbieder-en-diens-softwareleverancier">2. Wat verandert er voor de zorgaanbieder (en diens softwareleverancier)?<a class="headerlink" href="#2-wat-verandert-er-voor-de-zorgaanbieder-en-diens-softwareleverancier" title="Permanent link">¶</a></h2>
-<h3 id="21-van-estafette-naar-netwerk">2.1 Van estafette naar netwerk<a class="headerlink" href="#21-van-estafette-naar-netwerk" title="Permanent link">¶</a></h3>
-<p>Vandaag werk je in het <strong>estafettemodel</strong> (iWlz 2.4 in productie). Daarin geven partijen berichten als een estafettestokje aan elkaar door, en elk inhoudelijk bericht kent een verplicht retourbericht:</p>
+<h1 id="testen-aansluiting-zorgaanbieder">Testen aansluiting zorgaanbieder<a class="headerlink" href="#testen-aansluiting-zorgaanbieder" title="Permanent link">¶</a></h1>
+<p>Bij de introductie van een nieuw register vindt een landelijke ketentest plaats, centraal uitgevoerd met ketenpartijen en hun softwareleveranciers. De afspraken staan in het landelijk-ketentestplan wat voorafgaand aan de ketentest wordt verspreid onder de deelnemers die hieraan meedoen.</p>
+<p>Partijen die ná de landelijke ketentest aansluiten, organiseren en voeren zelf tests uit met de betrokken ketenpartijen. Zij stemmen inhoud en aanpak onderling af. Er is op dit moment geen centrale coördinatie of vast toetsingsmoment voor individuele aansluitingen.</p>
+<p>Concreet voor je testtraject:</p>
 <ul>
-<li>Het zorgkantoor stuurt je de toewijzing met <strong>AW33</strong> (retour <strong>AW34</strong>).</li>
-<li>Je meldt de aanvang van zorg met <strong>AW35</strong> (retour <strong>AW36</strong>).</li>
-<li>Je meldt mutaties en beëindiging met <strong>AW39</strong> (retour <strong>AW310</strong>).</li>
+<li>Je hebt een <strong>testcertificaat</strong> nodig (apart van productie, zie artikel: Implementatiestappen &gt; §1.3) en gebruikt het TST-PEP-endpoint <code>https://tst-api.vecozo.nl/tst/netwerkmodel/v3/pep</code>.</li>
+<li>Gebruik van <strong>productiedata is niet toegestaan</strong>. Zorginstituut Nederland publiceert bij releases een lijst met <strong>fictieve BSN's</strong> voor testdoeleinden.</li>
+<li>Afnemers gebruiken de testomgeving <strong>verplicht bij onboarding</strong>. Bronhouders stellen een testomgeving beschikbaar (zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/serviceafspraken/bronhoudersdeel/#21-beschikbaar-stellen-testomgeving-door-bronhouders">Bronhoudersdeel serviceafspraken, §2.1</a>).</li>
+<li>Voor het raadplegen van het Bemiddelingsregister heb je een geldige notificatie met vooraf geconfigureerde testdata nodig. Welke flow je volgt, hangt af van de data die je eerste query teruggeeft. Zet daarom vooraf een testdataset klaar met de juiste rechten voor de onboarding.</li>
+<li>Loadtesten stem je vooraf af met de operationeel netwerkbeheerder.</li>
 </ul>
-<p>In het <strong>netwerkmodel</strong> vervalt dit berichtenverkeer. In plaats daarvan staan actuele gegevens in registers die je raadpleegt als je daartoe geautoriseerd bent. Je ontvangt een notificatie over nieuwe of gewijzigde informatie, en je vult zelf het Leveringsregister.</p>
-<p></p><pre class="mermaid-zoom"><code>---
-config:
- theme: base
- themeVariables:
- background: "#ffffff"
- primaryColor: "#ffffff"
- primaryTextColor: "#1e3a5f"
- primaryBorderColor: "#d0d7de"
- clusterBkg: "#ffffff"
- clusterBorder: "#d8dee4"
- edgeLabelBackground: "#ffffff"
- lineColor: "#1f4e79"
- fontFamily: "Helvetica, Arial, sans-serif"
----
-flowchart TB
- subgraph EST["ESTAFETTEMODEL &amp;middot; iWlz 2.4 (productie)"]
- direction LR
- ZK["Zorgkantoor"]
- ZA1["Zorgaanbieder"]
- ZK -- "AW33 &amp;middot; AW35 &amp;middot; AW39-toewijzing &amp;middot; aanvang &amp;middot; mutatie" --&gt; ZA1
- ZA1 -. "AW34 &amp;middot; AW36 &amp;middot; AW310-retourbericht" .-&gt; ZK
- CAP1["puntsgewijze berichten, verplicht retour, vaste volgorde"]
- end
-
- subgraph NET["NETWERKMODEL"]
- direction LR
- ZA2["Zorgaanbieder"]
- BEM[("Bemiddelingsregister")]
- IND[("Indicatieregister")]
- LEV[("Leveringsregister")]
- ZA2 -- "raadplegen" --&gt; BEM
- ZA2 -- "raadplegen &amp;middot; wlzIndicatieID" --&gt; IND
- ZA2 -- "registreren" --&gt; LEV
- BEM -. "notificatie" .-&gt; ZA2
- CAP2["Notificatie uit het Leveringsregister naar zorgkantoor of andere zorgaanbieder."]
- end
-
- EST ==&gt; NET
-
- classDef actor fill:#1e3a5f,stroke:#1e3a5f,color:#ffffff,font-weight:bold
- classDef register fill:#eaf2fb,stroke:#1f4e79,color:#1f4e79,font-weight:bold
- classDef caption fill:none,stroke:none,color:#333333,font-size:13px
- class ZK,ZA1,ZA2 actor
- class BEM,IND,LEV register
- class CAP1,CAP2 caption
-
- linkStyle 0,1 stroke:#c2185b,color:#c2185b,font-weight:bold
- linkStyle 5 stroke:#b8860b,color:#b8860b,font-weight:bold</code></pre>
-Figuur 1 - Estafettemodel versus netwerkmodel: berichten met retour worden registers met notificaties<p></p>
-<p>De procesveranderingen ten opzichte van het estafettemodel:</p>
-<ol>
-<li>De AW33 vervalt. De toewijzingsinformatie staat in het Indicatie- en Bemiddelingsregister. De zorgaanbieder raadpleegt deze informatie. In plaats van de AW33 ontvangt de zorgaanbieder een notificatie.</li>
-<li>De regiehouder (dossierhouder of coördinator zorg thuis) is actueel raadpleegbaar in het Bemiddelingsregister, inclusief tussentijdse wisselingen. In het estafettemodel zijn die tussentijdse wisselingen niet beschikbaar.</li>
-<li>De informatieve zorgtoewijzing is raadpleegbaar. Het zorgkantoor verstuurt deze toewijzing niet meer automatisch.</li>
-<li>Het retourbericht (AW34/AW36/AW310) vervalt: een bevestiging op de notificatie en foutmeldingen komen ervoor in de plaats (§3.10).</li>
-<li>Het XML-bericht is vervangen door een GraphQL-query.</li>
-<li>Contactgegevens van cliënt en contactpersonen zijn raadpleegbaar in het Bemiddelingsregister, en op termijn in het Leveringsregister.</li>
-<li>Overlappende leveringen van andere aanbieders zijn met het Leveringsregister raadpleegbaar (LRA0005).</li>
-<li>Bij een verzoek aan een andere aanbieder ontvangt die aanbieder een notificatie (<code>NIEUW_VERZOEKAANBIEDER_AANBIEDER</code>) en kan het verzoek raadplegen.</li>
-<li>De zorgaanbieder in een andere regio dan het verantwoordelijk zorgkantoor raadpleegt direct de bron van het verantwoordelijk zorgkantoor, in plaats van via het uitvoerend zorgkantoor.</li>
-</ol>
-<h3 id="22-inhoudelijke-wijzigingen-in-het-informatiemodel-los-van-de-overstap-op-registers">2.2 Inhoudelijke wijzigingen in het informatiemodel (los van de overstap op registers)<a class="headerlink" href="#22-inhoudelijke-wijzigingen-in-het-informatiemodel-los-van-de-overstap-op-registers" title="Permanent link">¶</a></h3>
-<p>Naast de overstap van berichten naar registers wijzigen de volgende zaken inhoudelijk. De tabel hieronder vergelijkt estafette (iWlz 2.4) en netwerkmodel.</p>
-<table>
-<thead>
-<tr>
-<th><strong>Onderwerp</strong></th>
-<th><strong>Estafette (iWlz 2.4)</strong></th>
-<th><strong>Netwerkmodel</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Actualiteit van gegevens</td>
-<td>AW33 is een volledige momentopname van alle geldige toewijzingen (OP087)</td>
-<td>Registerstand, raadpleegbaar op het moment van bevraging</td>
-</tr>
-<tr>
-<td>Bevestiging en foutafhandeling</td>
-<td>Verplicht retourbericht (AW34/AW36/AW310) binnen één werkdag (OP090); alles-of-niets per cliënt (OP093); correctie binnen één werkdag (OP180)</td>
-<td>Synchrone respons op de aanroep; bevestiging op de notificatie; foutmelding <code>IWLZFOUTMELDING</code> (§3.10)</td>
-</tr>
-<tr>
-<td>Informatieve toewijzing</td>
-<td>Broadcast van AW33 naar alle betrokken aanbieders, met informatieve toewijzingen (OP032, OP318)</td>
-<td>Raadpleegbaar in het register; notificatie <code>INFORMATIEVE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER</code></td>
-</tr>
-<tr>
-<td>Bovenregionaal verkeer</td>
-<td>Doorstuurberichten tussen zorgkantoren (ZK33/ZK34, ZK35/ZK36, ZK39/ZK310)</td>
-<td>Geen doorstuurberichten; raadpleging bij de bron van het verantwoordelijk zorgkantoor</td>
-</tr>
-<tr>
-<td>Berichtspecifieke velden</td>
-<td><code>Mutatiecode</code>, <code>Mutatiedatum</code>, <code>Toewijzingstijd</code>, <code>StatusAanlevering</code> (correctiemechanisme OP033); <code>Etmalen</code>, <code>Sleuteldatum</code></td>
-<td>Vervallen of vervangen door registerstand en notificatie; <code>Etmalen</code> en <code>Sleuteldatum</code> kennen LR-equivalenten (<code>vaststellingMoment</code>, <code>sleuteldatum</code>)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="23-gegevensmapping-op-hoofdlijnen">2.3 Gegevensmapping op hoofdlijnen<a class="headerlink" href="#23-gegevensmapping-op-hoofdlijnen" title="Permanent link">¶</a></h3>
-<p>De gegevens uit je huidige AW-berichten verdelen zich over drie registers. Gebruik voor de exacte, veld-voor-veld vergelijking de mappingdocumentatie van iStandaarden.</p>
-<table>
-<thead>
-<tr>
-<th><strong>Estafette-bericht</strong></th>
-<th><strong>Belangrijkste inhoud</strong></th>
-<th><strong>Netwerkmodel-bestemming</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>AW33</strong> (toewijzing, ZK → ZA)</td>
-<td>Volledige cliënt-snapshot: <code>Client</code>, <code>Indicatie</code>, <code>Stoornis</code>, <code>Beperking</code>, <code>GeindiceerdZorgzwaartepakket</code>, <code>ToegewezenZorgzwaartepakket</code> (incl. <code>Dossierhouder</code>, <code>CoordinatorZorgThuis</code>)</td>
-<td>Indicatiegegevens → <strong>Indicatieregister</strong> (WlzIndicatie); toewijzing/bemiddeling → <strong>Bemiddelingsregister</strong> (Bemiddeling, Bemiddelingspecificatie, Regiehouder)</td>
-</tr>
-<tr>
-<td><strong>AW35</strong> (aanvang, ZA → ZK)</td>
-<td><code>GeleverdZorgzwaartepakket</code>: <code>Begindatum</code>, <code>Sleuteldatum</code>, <code>Leveringsstatus</code>, <code>Etmalen</code>, <code>Behandeling</code></td>
-<td><strong>Leveringsregister</strong> (Leveringperiode, Behandelingperiode)</td>
-</tr>
-<tr>
-<td><strong>AW39</strong> (mutatie/beëindiging + aanvraag, ZA → ZK)</td>
-<td><code>MutatieZorgzwaartepakket</code> (mutatie/einde, leveringsstatus) en <code>Aanvraag</code> + <code>AanvraagInstelling</code> (aanvraag aangepaste toewijzing)</td>
-<td><strong>Leveringsregister</strong> (Uitstelperiode, Afstel, Verzoek, VerzoekAanbieder)</td>
-</tr>
-<tr>
-<td><strong>AW34 / AW36 / AW310</strong> (retour)</td>
-<td>Ontvangstbevestiging en retourcodes</td>
-<td>Vervalt: bevestiging op de notificatie + foutmelding (§3.10)</td>
-</tr>
-</tbody>
-</table>
-<p>De officiële, gedetailleerde mapping voor de toewijzing is de Excel <strong>"Mapping Bemiddelingsregister - AW33"</strong> (versie 1.4.2, 19 juni 2025) bij de release <a href="https://www.istandaarden.nl/domain/iwlz/specificaties/release-1">iWlz Bemiddelingsregister 1</a>. Deze mapping beschrijft hoe de gegevens uit het Indicatieregister én het Bemiddelingsregister overeenkomen met de AW33. De mapping is gebaseerd op de GraphQL-koppelvlakken Indicatieregister 1.4 en Bemiddelingsregister 1.1.0 en de AW33-schemadefinitie (iWlz 2.4.3).</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>De AW33-mapping dekt <strong>beide</strong> registers. Het tabblad AW33 bevat een kolom "Register" die elk AW33-veld toewijst aan het Indicatieregister of het Bemiddelingsregister. In versie 1.4.2 mapt de mapping circa 78 velden naar het <strong>Indicatieregister</strong> (waaronder alle BRP-cliëntgegevens, en het cliëntadres en telefoon) en circa 57 naar het <strong>Bemiddelingsregister</strong> (waaronder contactpersonen, regiehouder en de toewijzing zelf). Je hoeft dus geen aparte indicatie-mapping te maken: het Indicatieregister zit al in dit bestand, en is qua omvang zelfs de grootste bron. De twee uitgangspunten in de mapping: BRP-cliëntgegevens komen uit het Indicatieregister. Contactinformatie van de cliënt en relatiegegevens komen uit het Bemiddelingsregister. Het <code>wlzIndicatieID</code> blijft daarnaast het sleutelveld waarmee je vanuit het Bemiddelingsregister de actuele indicatie-inhoud in het Indicatieregister raadpleegt (zie §3.7).</p>
-</div>
-<h3 id="24-samenvatting-van-de-benodigde-aanpassingen">2.4 Samenvatting van de benodigde aanpassingen<a class="headerlink" href="#24-samenvatting-van-de-benodigde-aanpassingen" title="Permanent link">¶</a></h3>
-<p>Hieronder staat wat een softwareleverancier aanpast of bouwt, met verwijzing naar de stappen in hoofdstuk 3. Dit is de volledige scope, niet alleen het wegvallen van de berichten.</p>
-<ul>
-<li><strong>Aansluiten.</strong> VECOZO-aansluiting, systeemcertificaten (test en productie), IP-registratie, en endpoint-registratie in het tijdelijk adresboek (§3.2, §3.3, §3.4).</li>
-<li><strong>Autoriseren.</strong> Tokens aanvragen namens de zorgaanbieder op AGB-basis (actor), met de juiste scopes en audience; al het verkeer loopt via de PEP (§3.5).</li>
-<li><strong>Notificaties ontvangen.</strong> Een resource-endpoint voor notificaties uit het Bemiddelingsregister, en op termijn uit het Leveringsregister (§3.6.1).</li>
-<li><strong>Raadplegen.</strong> Een GraphQL-client voor de keten Bemiddelingsregister -&gt; <code>wlzIndicatieID</code> -&gt; Indicatieregister, conform de query-templates en GraphQL-over-HTTP (§3.7).</li>
-<li><strong>Leveringsregister vullen en notificeren.</strong> De zorglevering registreren en de bijbehorende notificaties versturen (§3.6.2, §3.8, §3.9).</li>
-<li><strong>Melden.</strong> Foutmeldingen afhandelen; alleen de bronhouder registreert een melding-endpoint (§3.6.3).</li>
-<li><strong>Foutafhandeling.</strong> Synchrone respons en foutmelding in plaats van het retourbericht (§3.10).</li>
-<li><strong>Tracelogging.</strong> <code>X-B3-TraceId</code> en <code>X-B3-SpanId</code> conform RFC0022a (§3.11).</li>
-<li><strong>Testen.</strong> Testomgeving, testcertificaat, fictieve BSN's en een onboarding-testdataset (§4).</li>
-<li><strong>Berichten uitfaseren.</strong> Genereren en verwerken van AW33/AW34, AW35/AW36 en AW39/AW310 vervalt. Let op de overgangsfase: zolang niet alle aanbieders zijn aangesloten, blijft <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/silvester/">Silvester</a> voor niet-aangesloten partijen AW33-berichten genereren (§2.1, §3.1).</li>
-</ul>
+<p>Zie voor meer informatie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/testen/">Testen</a>.</p>
 
 
 
@@ -1042,6 +748,28 @@ Figuur 1 - Estafettemodel versus netwerkmodel: berichten met retour worden regis
         <footer class="md-footer">
   
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../implementatiestappen/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Implementatiestappen">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Implementatiestappen
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1068,16 +796,16 @@ Figuur 1 - Estafettemodel versus netwerkmodel: berichten met retour worden regis
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "navigation.instant", "navigation.tracking", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.indexes", "navigation.path", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": {"default": "current", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "navigation.tracking", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.indexes", "navigation.path", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": {"default": "current", "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../../assets/javascripts/svg-pan-zoom.min.js"></script>
+        <script src="../../assets/javascripts/svg-pan-zoom.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
-        <script src="../../../assets/javascripts/mermaid-zoom.js"></script>
+        <script src="../../assets/javascripts/mermaid-zoom.js"></script>
       
     
   
