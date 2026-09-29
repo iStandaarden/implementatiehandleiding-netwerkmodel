@@ -119,9 +119,7 @@ nav:
       - Release notes: welkom/release-notes.md
   - Zorgaanbieder:
     - zorgaanbieder/index.md
-    - Technische aansluiting zorgaanbieder: 
-        - zorgaanbieder/technische_aansluiting_zorgaanbieder/index.md
-        - Wat verandert er: zorgaanbieder/technische_aansluiting_zorgaanbieder/wat-verandert-er.md
-        - Implementatiestappen: zorgaanbieder/technische_aansluiting_zorgaanbieder/implementatiestappen.md
-        - Testen aansluiting: zorgaanbieder/technische_aansluiting_zorgaanbieder/testen_aansluiting.md
+    - Wat verandert er: zorgaanbieder/wat-verandert-er.md
+      - Implementatiestappen: zorgaanbieder/implementatiestappen.md
+      - Testen aansluiting: zorgaanbieder/testen_aansluiting.md
 
