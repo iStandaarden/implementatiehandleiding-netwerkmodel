@@ -8,7 +8,7 @@
 - Inleiding verwijst naar de onderdelen van het afsprakenstelsel die je vooraf leest.
 - Wat verandert er beschrijft wat er verandert ten opzichte van het estafettemodel dat je nu in productie hebt: het procesconcept, de inhoudelijke wijzigingen in het informatiemodel, en de gegevensmapping op hoofdlijnen.
 - Implementatiestappen beschrijft de implementatiestappen in de aanbevolen volgorde.
-- Tesen aansluiting beschrijft het testen.
+- [Testen aansluiting](./testen-aansluiting.md) beschrijft het testen.
 
 
 ## 1. Inleiding
