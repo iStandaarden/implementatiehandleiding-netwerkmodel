@@ -67,7 +67,7 @@ De procesveranderingen ten opzichte van het estafettemodel:
 1. De AW33 vervalt. De toewijzingsinformatie staat in het Indicatie- en Bemiddelingsregister. De zorgaanbieder raadpleegt deze informatie. In plaats van de AW33 ontvangt de zorgaanbieder een notificatie.
 2. De regiehouder (dossierhouder of coördinator zorg thuis) is actueel raadpleegbaar in het Bemiddelingsregister, inclusief tussentijdse wisselingen. In het estafettemodel zijn die tussentijdse wisselingen niet beschikbaar.
 3. De informatieve zorgtoewijzing is raadpleegbaar. Het zorgkantoor verstuurt deze toewijzing niet meer automatisch.
-4. Het retourbericht (AW34/AW36/AW310) vervalt: een bevestiging op de notificatie en foutmeldingen komen ervoor in de plaats (artikel: Implementaitestappen > §1.10).
+4. Het retourbericht (AW34/AW36/AW310) vervalt: een bevestiging op de notificatie en foutmeldingen komen ervoor in de plaats (artikel: Implementatiestappen > §1.10).
 5. Het XML-bericht is vervangen door een GraphQL-query.
 6. Contactgegevens van cliënt en contactpersonen zijn raadpleegbaar in het Bemiddelingsregister, en op termijn in het Leveringsregister.
 7. Overlappende leveringen van andere aanbieders zijn met het Leveringsregister raadpleegbaar (LRA0005).
@@ -104,7 +104,7 @@ De officiële, gedetailleerde mapping voor de toewijzing is de Excel **"Mapping 
 
 ### 1.4 Samenvatting van de benodigde aanpassingen
 
-Hieronder staat wat een softwareleverancier aanpast of bouwt, met verwijzing naar de stappen in hoofdstuk 3. Dit is de volledige scope, niet alleen het wegvallen van de berichten.
+Hieronder staat wat een softwareleverancier aanpast of bouwt, met verwijzing naar de stappen in artikel: Implementatiestappen. Dit is de volledige scope, niet alleen het wegvallen van de berichten.
 
 - **Aansluiten.** VECOZO-aansluiting, systeemcertificaten (test en productie), IP-registratie, en endpoint-registratie in het tijdelijk adresboek (zie artikel: Implementatiestappen > §1.2, §1.3, §1.4).
 - **Autoriseren.** Tokens aanvragen namens de zorgaanbieder op AGB-basis (actor), met de juiste scopes en audience; al het verkeer loopt via de PEP (zie artikel: Implementatiestappen > §1.5).
@@ -114,5 +114,5 @@ Hieronder staat wat een softwareleverancier aanpast of bouwt, met verwijzing naa
 - **Melden.** Foutmeldingen afhandelen; alleen de bronhouder registreert een melding-endpoint (zie artikel: Implementatiestappen > §1.6.3).
 - **Foutafhandeling.** Synchrone respons en foutmelding in plaats van het retourbericht (zie artikel: Implementatiestappen > §1.10).
 - **Tracelogging.** `X-B3-TraceId` en `X-B3-SpanId` conform RFC0022a (zie artikel: Implementatiestappen > §1.11).
-- **Testen.** Testomgeving, testcertificaat, fictieve BSN's en een onboarding-testdataset (§4).
+- **Testen.** Testomgeving, testcertificaat, fictieve BSN's en een onboarding-testdataset (zie artikel: Testen > §4).
 - **Berichten uitfaseren.** Genereren en verwerken van AW33/AW34, AW35/AW36 en AW39/AW310 vervalt. Let op de overgangsfase: zolang niet alle aanbieders zijn aangesloten, blijft [Silvester](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/silvester/) voor niet-aangesloten partijen AW33-berichten genereren (zie artikel: Wat verandert er > §1.1, en artikel: Implementatiestappen > §1.1).
