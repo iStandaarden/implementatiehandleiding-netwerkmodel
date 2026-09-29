@@ -118,4 +118,4 @@ nav:
       - Versiebeheer: welkom/versiebeheer.md
       - Release notes: welkom/release-notes.md
   - Zorgaanbieder:
-      - zorgaanbieder/ta-zorgaanbieder.md
+      - Technische aansluiting Zorgaanbieder: zorgaanbieder/ta-zorgaanbieder.md
