@@ -1,7 +1,7 @@
 ## Implementatiehandleiding technische aansluiting zorgaanbieder
 
-> ℹ️
-> In dit artikel beschrijven we de onderdelen die nodig zijn om als zorgaanbieder aan te sluiten op het iWlz-netwerk. De handleiding is geschreven voor softwareleveranciers en voor zorgaanbieders die zelf software bouwen en beheren.
+!!!info
+    In dit artikel beschrijven we de onderdelen die nodig zijn om als zorgaanbieder aan te sluiten op het iWlz-netwerk. De handleiding is geschreven voor softwareleveranciers en voor zorgaanbieders die zelf software bouwen en beheren.
 
 ### Leeswijzer
 
@@ -128,8 +128,8 @@ De gegevens uit je huidige AW-berichten verdelen zich over drie registers. Gebru
 
 De officiële, gedetailleerde mapping voor de toewijzing is de Excel **"Mapping Bemiddelingsregister - AW33"** (versie 1.4.2, 19 juni 2025) bij de release [iWlz Bemiddelingsregister 1](https://www.istandaarden.nl/domain/iwlz/specificaties/release-1). Deze mapping beschrijft hoe de gegevens uit het Indicatieregister én het Bemiddelingsregister overeenkomen met de AW33. De mapping is gebaseerd op de GraphQL-koppelvlakken Indicatieregister 1.4 en Bemiddelingsregister 1.1.0 en de AW33-schemadefinitie (iWlz 2.4.3).
 
-> ℹ️
-> De AW33-mapping dekt **beide** registers. Het tabblad AW33 bevat een kolom "Register" die elk AW33-veld toewijst aan het Indicatieregister of het Bemiddelingsregister. In versie 1.4.2 mapt de mapping circa 78 velden naar het **Indicatieregister** (waaronder alle BRP-cliëntgegevens, en het cliëntadres en telefoon) en circa 57 naar het **Bemiddelingsregister** (waaronder contactpersonen, regiehouder en de toewijzing zelf). Je hoeft dus geen aparte indicatie-mapping te maken: het Indicatieregister zit al in dit bestand, en is qua omvang zelfs de grootste bron. De twee uitgangspunten in de mapping: BRP-cliëntgegevens komen uit het Indicatieregister. Contactinformatie van de cliënt en relatiegegevens komen uit het Bemiddelingsregister. Het `wlzIndicatieID` blijft daarnaast het sleutelveld waarmee je vanuit het Bemiddelingsregister de actuele indicatie-inhoud in het Indicatieregister raadpleegt (zie §3.7).
+!!!info
+    De AW33-mapping dekt **beide** registers. Het tabblad AW33 bevat een kolom "Register" die elk AW33-veld toewijst aan het Indicatieregister of het Bemiddelingsregister. In versie 1.4.2 mapt de mapping circa 78 velden naar het **Indicatieregister** (waaronder alle BRP-cliëntgegevens, en het cliëntadres en telefoon) en circa 57 naar het **Bemiddelingsregister** (waaronder contactpersonen, regiehouder en de toewijzing zelf). Je hoeft dus geen aparte indicatie-mapping te maken: het Indicatieregister zit al in dit bestand, en is qua omvang zelfs de grootste bron. De twee uitgangspunten in de mapping: BRP-cliëntgegevens komen uit het Indicatieregister. Contactinformatie van de cliënt en relatiegegevens komen uit het Bemiddelingsregister. Het `wlzIndicatieID` blijft daarnaast het sleutelveld waarmee je vanuit het Bemiddelingsregister de actuele indicatie-inhoud in het Indicatieregister raadpleegt (zie §3.7).
 
 ### 2.4 Samenvatting van de benodigde aanpassingen
 
@@ -213,8 +213,8 @@ De softwareleverancier van de zorgaanbieder moet voor aansluiting op het Bemidde
     ] 
 }
 ```
-> ℹ️
-> Registreer per AGB-code de relevante endpoints in het tijdelijk adresboek. Neem hiervoor contact op met iStandaarden.
+!!! info
+    Registreer per AGB-code de relevante endpoints in het tijdelijk adresboek. Neem hiervoor contact op met iStandaarden.
 
 ### 3.5 Autorisatie inrichten
 
@@ -319,8 +319,8 @@ Als zorgaanbieder verstuur je notificaties wanneer je gegevens registreert in he
 - Aan het zorgkantoor: nieuwe, gewijzigde en verwijderde `LEVERINGPERIODE`, `BEHANDELINGPERIODE`, `UITSTELPERIODE` en `AFSTEL`, en `NIEUW_VERZOEK_ZORGKANTOOR`.
 - Aan een andere zorgaanbieder: `NIEUW_VERZOEKAANBIEDER_AANBIEDER` (zie ook §3.6.1).
 
-> ℹ️
-> De notificatie die het leveringsproces voor jou start (een nieuwe Bemiddelingspecificatie/toewijzing) komt uit het Bemiddelingsregister, niet uit het Leveringsregister.
+!!! info
+    De notificatie die het leveringsproces voor jou start (een nieuwe Bemiddelingspecificatie/toewijzing) komt uit het Bemiddelingsregister, niet uit het Leveringsregister.
 
 #### 3.6.3 Melden
 
@@ -381,8 +381,8 @@ Let bij het bouwen op de eisen uit [GraphQL over HTTP](https://istandaarden.gith
 
 Het [Leveringsregister 1](https://www.istandaarden.nl/algemeen/over-leveringsregister-1-0) is het register waarin je als zorgaanbieder de zorglevering registreert. Het vervangt de berichten **AW35** (aanvang) en **AW39** (mutatie en beëindiging, inclusief de aanvraag aangepaste toewijzing).
 
-> ⚠️
-> Het Leveringsregister 1 is op dit moment een **Release Candidate** (versie 1.0-rc1, 29-01-2026). De raadpleeg-use-cases en toegangscontroles zijn nog als concept gepubliceerd. Schema en queries kunnen nog wijzigen. Houd dit voorbehoud aan bij je implementatie.
+!!! Warning
+    Het Leveringsregister 1 is op dit moment een **Release Candidate** (versie 1.0-rc1, 29-01-2026). De raadpleeg-use-cases en toegangscontroles zijn nog als concept gepubliceerd. Schema en queries kunnen nog wijzigen. Houd dit voorbehoud aan bij je implementatie.
 
 Als zorgaanbieder registreer je onder andere de volgende klassen (zie het [informatiemodel Leveringsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/)):
 
@@ -394,8 +394,8 @@ Als zorgaanbieder registreer je onder andere de volgende klassen (zie het [infor
 
 Je inzage als raadpleger is read-only en geregeld via de autorisatieregels LRA0005 (leveringstatus bij overlappende toewijzingen van andere aanbieders) en LRA0006 (het Verzoek waarin voor jou een aanvraag is opgenomen).
 
-> ℹ️
-> Het GraphQL-koppelvlak van het Leveringsregister 1 beschrijft op dit moment alleen raadplegen (`Query`). Het registreren/vullen is procesmatig beschreven (proces Leveren, gegevens- en invulinstructieregels) en je verstuurt de bijbehorende notificaties (§3.6.2), maar het schrijf-/aanleverkoppelvlak is geen onderdeel van de iStandaarden. Je bent zelf verantwoordelijk voor de vulling van het register.
+!!! Info
+    Het GraphQL-koppelvlak van het Leveringsregister 1 beschrijft op dit moment alleen raadplegen (`Query`). Het registreren/vullen is procesmatig beschreven (proces Leveren, gegevens- en invulinstructieregels) en je verstuurt de bijbehorende notificaties (§3.6.2), maar het schrijf-/aanleverkoppelvlak is geen onderdeel van de iStandaarden. Je bent zelf verantwoordelijk voor de vulling van het register.
 
 ### 3.9 Initieel vullen van het Leveringsregister
 
