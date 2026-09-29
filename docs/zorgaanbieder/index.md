@@ -1,4 +1,4 @@
-## Implementatiehandleiding technische aansluiting zorgaanbieder
+# Implementatiehandleiding technische aansluiting zorgaanbieder
 
 !!!info
     In dit artikel beschrijven we de onderdelen die nodig zijn om als zorgaanbieder aan te sluiten op het iWlz-netwerk. De handleiding is geschreven voor softwareleveranciers en voor zorgaanbieders die zelf software bouwen en beheren.
