@@ -5,11 +5,10 @@
 
 ### Leeswijzer
 
-- Hoofdstuk 1 verwijst naar de onderdelen van het afsprakenstelsel die je vooraf leest.
-- Hoofdstuk 2 beschrijft wat er verandert ten opzichte van het estafettemodel dat je nu in productie hebt: het procesconcept, de inhoudelijke wijzigingen in het informatiemodel, en de gegevensmapping op hoofdlijnen.
-- Hoofdstuk 3 beschrijft de implementatiestappen in de aanbevolen volgorde.
-- Hoofdstuk 4 beschrijft het testen.
-- Hoofdstuk 5 bevat de openstaande punten en aannames die we nog toetsen.
+- Inleiding verwijst naar de onderdelen van het afsprakenstelsel die je vooraf leest.
+- Wat verandert er beschrijft wat er verandert ten opzichte van het estafettemodel dat je nu in productie hebt: het procesconcept, de inhoudelijke wijzigingen in het informatiemodel, en de gegevensmapping op hoofdlijnen.
+- Implementatiestappen beschrijft de implementatiestappen in de aanbevolen volgorde.
+- Tesen aansluiting beschrijft het testen.
 
 
 ## 1. Inleiding
