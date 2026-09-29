@@ -11,6 +11,8 @@
         <link rel="prev" href="../welkom/release-notes/">
       
       
+        <link rel="next" href="wat-verandert-er/">
+      
       
         
       
@@ -85,6 +87,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" class="md-skip">
+          Ga naar inhoud
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -494,6 +501,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -555,98 +566,8 @@
   
   
   
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2">
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Technische aansluiting zorgaanbieder
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Technische aansluiting zorgaanbieder
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="technische_aansluiting_zorgaanbieder/index.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    None
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="technische_aansluiting_zorgaanbieder/wat-verandert-er.md" class="md-nav__link">
+      <a href="wat-verandert-er/" class="md-nav__link">
         
   
   
@@ -674,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technische_aansluiting_zorgaanbieder/implementatiestappen.md" class="md-nav__link">
+      <a href="implementatiestappen/" class="md-nav__link">
         
   
   
@@ -702,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technische_aansluiting_zorgaanbieder/testen_aansluiting.md" class="md-nav__link">
+      <a href="testen-aansluiting.md" class="md-nav__link">
         
   
   
@@ -718,14 +639,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -756,6 +669,53 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementatiehandleiding technische aansluiting zorgaanbieder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementatiehandleiding technische aansluiting zorgaanbieder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leeswijzer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leeswijzer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-inleiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Inleiding
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -782,7 +742,31 @@
 
   <h1>Index</h1>
 
-
+<h2 id="implementatiehandleiding-technische-aansluiting-zorgaanbieder">Implementatiehandleiding technische aansluiting zorgaanbieder<a class="headerlink" href="#implementatiehandleiding-technische-aansluiting-zorgaanbieder" title="Permanent link">¶</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In dit artikel beschrijven we de onderdelen die nodig zijn om als zorgaanbieder aan te sluiten op het iWlz-netwerk. De handleiding is geschreven voor softwareleveranciers en voor zorgaanbieders die zelf software bouwen en beheren.</p>
+</div>
+<h3 id="leeswijzer">Leeswijzer<a class="headerlink" href="#leeswijzer" title="Permanent link">¶</a></h3>
+<ul>
+<li>Hoofdstuk 1 verwijst naar de onderdelen van het afsprakenstelsel die je vooraf leest.</li>
+<li>Hoofdstuk 2 beschrijft wat er verandert ten opzichte van het estafettemodel dat je nu in productie hebt: het procesconcept, de inhoudelijke wijzigingen in het informatiemodel, en de gegevensmapping op hoofdlijnen.</li>
+<li>Hoofdstuk 3 beschrijft de implementatiestappen in de aanbevolen volgorde.</li>
+<li>Hoofdstuk 4 beschrijft het testen.</li>
+<li>Hoofdstuk 5 bevat de openstaande punten en aannames die we nog toetsen.</li>
+</ul>
+<h2 id="1-inleiding">1. Inleiding<a class="headerlink" href="#1-inleiding" title="Permanent link">¶</a></h2>
+<p>Deze implementatiehandleiding beschrijft hoe je systemen aansluit op het iWlz-netwerkmodel. De handleiding is bedoeld voor softwareleveranciers en voor zorgaanbieders die zelf software ontwikkelen en beheren. De specificaties (informatiemodel en ondersteunende documentatie) staan op <a href="https://www.istandaarden.nl/domain/iwlz">iStandaarden</a>.</p>
+<p>Het Afsprakenstelsel iWlz-netwerkmodel beschrijft de afspraken, architectuur en technische specificaties die nodig zijn om het iWlz-netwerkmodel te implementeren, te beheren en te laten functioneren. Lees voor implementatie in ieder geval:</p>
+<ul>
+<li><a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/">Introductiepagina</a></li>
+<li><a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/inleiding/achtergrond_toelichting/">Achtergrond en toelichting</a></li>
+<li><a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/randvoorwaarden/">Randvoorwaarden</a></li>
+<li><a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/ontwerpkeuzes/">Ontwerpkeuzes</a></li>
+<li><a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/">Uitwisselprofiel Indicatie</a></li>
+<li><a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/">Uitwisselprofiel Bemiddeling</a></li>
+</ul>
+<p>Zodra het Uitwisselprofiel Levering gereed is, geldt deze leeslijst ook daarvoor. Dit profiel is nu nog in ontwikkeling.</p>
 
 
 
@@ -835,6 +819,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="wat-verandert-er/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Wat verandert er">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Wat verandert er
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
         
       </nav>
     
