@@ -6,7 +6,7 @@ Partijen die ná de landelijke ketentest aansluiten, organiseren en voeren zelf 
 
 Concreet voor je testtraject:
 
-- Je hebt een **testcertificaat** nodig (apart van productie, zie §1.3) en gebruikt het TST-PEP-endpoint `https://tst-api.vecozo.nl/tst/netwerkmodel/v3/pep`.
+- Je hebt een **testcertificaat** nodig (apart van productie, zie artikel: Implementatiestappen > §1.3) en gebruikt het TST-PEP-endpoint `https://tst-api.vecozo.nl/tst/netwerkmodel/v3/pep`.
 - Gebruik van **productiedata is niet toegestaan**. Zorginstituut Nederland publiceert bij releases een lijst met **fictieve BSN's** voor testdoeleinden.
 - Afnemers gebruiken de testomgeving **verplicht bij onboarding**. Bronhouders stellen een testomgeving beschikbaar (zie [Bronhoudersdeel serviceafspraken, §2.1](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/serviceafspraken/bronhoudersdeel/#21-beschikbaar-stellen-testomgeving-door-bronhouders)).
 - Voor het raadplegen van het Bemiddelingsregister heb je een geldige notificatie met vooraf geconfigureerde testdata nodig. Welke flow je volgt, hangt af van de data die je eerste query teruggeeft. Zet daarom vooraf een testdataset klaar met de juiste rechten voor de onboarding.

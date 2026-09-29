@@ -7,8 +7,8 @@ Deelname aan het iWlz-netwerkmodel vereist de onderstaande stappen, in de aanbev
 Vergelijk je huidige estafette-implementatie met het netwerkmodel. Pas je software waar nodig aan. Gebruik daarvoor concreet:
 
 1. **Gegevens (veld-voor-veld):** de mapping **"Mapping Bemiddelingsregister - AW33"** bij [iWlz Bemiddelingsregister 1](https://www.istandaarden.nl/domain/iwlz/specificaties/release-1). Hierin staat hoe de gegevens uit het Indicatie- en Bemiddelingsregister overeenkomen met de AW33.
-2. **Informatiemodel (concepten):** vergelijk het [estafette-informatiemodel iWlz 2.4](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/) dat je nu in productie hebt met de netwerkmodel-registers ([Bemiddelingsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/), [Indicatieregister](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/), [Leveringsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/)). Het overzicht in §1.2 helpt bij de inhoudelijke verschillen.
-3. **Proces en regels:** beoordeel of je procesafhandeling past bij het wegvallen van de estafette-volgorde en de retourberichten (§1.1 en §1.10).
+2. **Informatiemodel (concepten):** vergelijk het [estafette-informatiemodel iWlz 2.4](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/) dat je nu in productie hebt met de netwerkmodel-registers ([Bemiddelingsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/), [Indicatieregister](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/), [Leveringsregister 1](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/)). Het overzicht in §1.2 (artikel: Wat verandert er) helpt bij de inhoudelijke verschillen.
+3. **Proces en regels:** beoordeel of je procesafhandeling past bij het wegvallen van de estafette-volgorde en de retourberichten (artikel: Wat verandert er > §1.1 en artikel: Implementatiestappen > §1.10).
 
 ### 1.2 Aansluiten bij VECOZO
 
