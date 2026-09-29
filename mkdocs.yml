@@ -118,7 +118,8 @@ nav:
       - Versiebeheer: welkom/versiebeheer.md
       - Release notes: welkom/release-notes.md
   - Zorgaanbieder:
-      - Technische aansluiting Zorgaanbieder: 
+    - zorgaanbieder/index.md
+    - Technische aansluiting zorgaanbieder: 
         - zorgaanbieder/technische_aansluiting_zorgaanbieder/index.md
         - Wat verandert er: zorgaanbieder/technische_aansluiting_zorgaanbieder/wat-verandert-er.md
         - Implementatiestappen: zorgaanbieder/technische_aansluiting_zorgaanbieder/implementatiestappen.md
