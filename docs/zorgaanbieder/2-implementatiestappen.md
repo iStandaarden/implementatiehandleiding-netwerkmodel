@@ -31,7 +31,7 @@ Na aansluiting bij VECOZO sluit je aan op het iWlz-netwerk. De vereisten staan i
 ### 2.4 Aansluiten op het tijdelijk adresboek
 
 !!! Warning
-    Let op: het tijdelijke adresboek is een tussenoplossing. We werken aan een definitieve oplossing, maar weten nog niet hoe die eruit komt te zien. Zodra daar meer over bekend is, laten we dat weten.
+    Let op: het tijdelijke adresboek is een tussenoplossing. We werken aan een definitieve oplossing, maar de precieze invulling daarvan is nog niet bekend. Zodra hierover meer duidelijkheid is, zullen we hierover informeren.
 
 Het adresboek bevat de endpoints die aangeven waar notificaties en meldingen naartoe moeten en waar informatie kan worden geraadpleegd. Omdat het zorgadresboek (Zorg-AB) nog niet beschikbaar is, is er een tijdelijk adresboek:
 
