@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <lastmod>2026-09-30</lastmod>
     </url>
     <url>
          <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/welkom/release-notes/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <lastmod>2026-09-30</lastmod>
     </url>
     <url>
          <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/welkom/versiebeheer/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <lastmod>2026-09-30</lastmod>
     </url>
     <url>
          <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/implementatiestappen/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/1-wat-verandert-er/</loc>
+         <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/testen/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/2-implementatiestappen/</loc>
+         <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/wat-verandert-er/</loc>
-         <lastmod>2026-09-29</lastmod>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/3-testen/</loc>
+         <lastmod>2026-09-30</lastmod>
     </url>
 </urlset>

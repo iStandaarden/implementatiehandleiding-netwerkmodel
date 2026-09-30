@@ -1,0 +1,1395 @@
+<!DOCTYPE html><html lang="nl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/zorgaanbieder/2-implementatiestappen/">
+      
+      
+        <link rel="prev" href="../1-wat-verandert-er/">
+      
+      
+        <link rel="next" href="../3-testen/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/cog-transfer-outline-custom.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2 Implementatiestappen - Implementatiehandleidingen Netwerkmodel</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/zin.css">
+    
+      <link rel="stylesheet" href="../../css/mermaid-zoom.css">
+    
+      <link rel="stylesheet" href="../../css/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-implementatiestappen" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+<div style="justify-content:center; ">
+    <img src="../../assets/zinbanner.png" alt="ZIN banner" style="max-width:100%; height:auto; display:block; margin:0 auto;">
+</div>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Implementatiehandleidingen Netwerkmodel" class="md-header__button md-logo" aria-label="Implementatiehandleidingen Netwerkmodel" data-md-component="logo">
+          
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17v-3h3v-2l4 3.5-4 3.5v-2zm2 1v3h-3v2l-4-3.5 4-3.5v2zM12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m9.66-5.27-2-3.46c-.12-.22-.38-.31-.61-.22l-2.49 1c-.51-.41-1.06-.74-1.69-1l-.37-2.63A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.26-1.17.59-1.69 1L5 5.05c-.23-.09-.5 0-.61.22l-2 3.46c-.13.21-.08.49.11.64L4.57 11l-.07 1 .07 1-2.11 1.63c-.2.15-.25.43-.12.64l2 3.46c.11.27.4.38.66.27l2.5-1c.24.19.5.37.76.53l1.65-1.4c-.77-.33-1.45-.82-2-1.45l-2.41 1-.77-1.3L6.8 13.8a5.55 5.55 0 0 1 0-3.6L4.69 8.65l.75-1.3 2.41 1c.78-.9 1.83-1.53 3-1.78l.4-2.57h1.5l.37 2.62c1.17.24 2.22.88 3 1.77l2.41-1 .75 1.3-2.08 1.51c.09.26.16.53.2.8h2l2.1-1.63a.48.48 0 0 0 .16-.64M12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m0-6c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implementatiehandleidingen Netwerkmodel
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2 Implementatiestappen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="deep-purple" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iStandaarden/implementatiehandleiding-netwerkmodel" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iStandaarden/implementatiehandleiding-netwerkmodel
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welkom
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Zorgaanbieder
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Implementatiehandleidingen Netwerkmodel" class="md-nav__button md-logo" aria-label="Implementatiehandleidingen Netwerkmodel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17v-3h3v-2l4 3.5-4 3.5v-2zm2 1v3h-3v2l-4-3.5 4-3.5v2zM12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m9.66-5.27-2-3.46c-.12-.22-.38-.31-.61-.22l-2.49 1c-.51-.41-1.06-.74-1.69-1l-.37-2.63A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.26-1.17.59-1.69 1L5 5.05c-.23-.09-.5 0-.61.22l-2 3.46c-.13.21-.08.49.11.64L4.57 11l-.07 1 .07 1-2.11 1.63c-.2.15-.25.43-.12.64l2 3.46c.11.27.4.38.66.27l2.5-1c.24.19.5.37.76.53l1.65-1.4c-.77-.33-1.45-.82-2-1.45l-2.41 1-.77-1.3L6.8 13.8a5.55 5.55 0 0 1 0-3.6L4.69 8.65l.75-1.3 2.41 1c.78-.9 1.83-1.53 3-1.78l.4-2.57h1.5l.37 2.62c1.17.24 2.22.88 3 1.77l2.41-1 .75 1.3-2.08 1.51c.09.26.16.53.2.8h2l2.1-1.63a.48.48 0 0 0 .16-.64M12 8c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2m0-6c-2.21 0-4 1.8-4 4 0 1.91 1.35 3.54 3.21 3.92L16 11.86A3.997 3.997 0 0 0 12 8m0 6c-1.1 0-2-.89-2-2s.9-2 2-2 2 .9 2 2-.89 2-2 2"></path></svg>
+
+    </a>
+    Implementatiehandleidingen Netwerkmodel
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iStandaarden/implementatiehandleiding-netwerkmodel" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iStandaarden/implementatiehandleiding-netwerkmodel
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welkom
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welkom
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../welkom/versiebeheer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versiebeheer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../welkom/release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zorgaanbieder
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Zorgaanbieder
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-wat-verandert-er/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Wat verandert er
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Implementatiestappen
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Implementatiestappen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#21-controleer-of-je-systeem-netwerkmodel-proof-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Controleer of je systeem netwerkmodel-proof is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-aansluiten-bij-vecozo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Aansluiten bij VECOZO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-aansluiten-op-het-iwlz-netwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Aansluiten op het iWlz-netwerk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-aansluiten-op-het-tijdelijk-adresboek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Aansluiten op het tijdelijk adresboek
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-autorisatie-inrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Autorisatie inrichten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-inrichten-notificeren-en-melden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Inrichten Notificeren en Melden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-inrichten-raadplegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 Inrichten Raadplegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-inrichten-van-het-leveringsregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Inrichten van het Leveringsregister
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-initieel-vullen-van-het-leveringsregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 Initieel vullen van het Leveringsregister
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-foutafhandeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 Foutafhandeling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-logging-en-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.11 Logging en tracing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-testen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Testen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#21-controleer-of-je-systeem-netwerkmodel-proof-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Controleer of je systeem netwerkmodel-proof is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-aansluiten-bij-vecozo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Aansluiten bij VECOZO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-aansluiten-op-het-iwlz-netwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Aansluiten op het iWlz-netwerk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-aansluiten-op-het-tijdelijk-adresboek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Aansluiten op het tijdelijk adresboek
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-autorisatie-inrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Autorisatie inrichten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-inrichten-notificeren-en-melden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Inrichten Notificeren en Melden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-inrichten-raadplegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 Inrichten Raadplegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-inrichten-van-het-leveringsregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Inrichten van het Leveringsregister
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-initieel-vullen-van-het-leveringsregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 Initieel vullen van het Leveringsregister
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-foutafhandeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 Foutafhandeling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-logging-en-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.11 Logging en tracing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="2-implementatiestappen">2 Implementatiestappen<a class="headerlink" href="#2-implementatiestappen" title="Permanent link">¶</a></h1>
+<p>Deelname aan het iWlz-netwerkmodel vereist de onderstaande stappen, in de aanbevolen volgorde.</p>
+<h3 id="21-controleer-of-je-systeem-netwerkmodel-proof-is">2.1 Controleer of je systeem netwerkmodel-proof is<a class="headerlink" href="#21-controleer-of-je-systeem-netwerkmodel-proof-is" title="Permanent link">¶</a></h3>
+<p>Vergelijk je huidige estafette-implementatie met het netwerkmodel. Pas je software waar nodig aan. Gebruik daarvoor concreet:</p>
+<ol>
+<li><strong>Gegevens (veld-voor-veld):</strong> de mapping <strong>"Mapping Bemiddelingsregister - AW33"</strong> bij <a href="https://www.istandaarden.nl/domain/iwlz/specificaties/release-1">iWlz Bemiddelingsregister 1</a>. Hierin staat hoe de gegevens uit het Indicatie- en Bemiddelingsregister overeenkomen met de AW33.</li>
+<li><strong>Informatiemodel (concepten):</strong> vergelijk het <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/">estafette-informatiemodel iWlz 2.4</a> dat je nu in productie hebt met de netwerkmodel-registers (<a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/">Bemiddelingsregister 1</a>, <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/">Indicatieregister</a>, <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/">Leveringsregister 1</a>). Het overzicht in §1.2 (artikel: Wat verandert er) helpt bij de inhoudelijke verschillen.</li>
+<li><strong>Proces en regels:</strong> beoordeel of je procesafhandeling past bij het wegvallen van de estafette-volgorde en de retourberichten (artikel: Wat verandert er &gt; §1.1 en artikel: Implementatiestappen &gt; §2.10).</li>
+</ol>
+<h3 id="22-aansluiten-bij-vecozo">2.2 Aansluiten bij VECOZO<a class="headerlink" href="#22-aansluiten-bij-vecozo" title="Permanent link">¶</a></h3>
+<p>Gebruik van het iWlz-netwerk vereist aansluiting bij VECOZO. De vereisten staan in <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/toetreden/#2-aansluiten-bij-vecozo/">Aansluiten bij VECOZO</a> van het artikel Toetreden. Voor het aansluiten heb je onder andere een KvK-nummer, een AGB-code en een ondertekende aansluitovereenkomst (OVK) met VECOZO nodig. Ook moet de zorgorganisatie voldoen aan NEN 7510.</p>
+<p>Softwareleveranciers en zorginkoopbemiddelaars hoeven niet zelf NEN 7510-gecertificeerd te zijn en hoeven geen eigen AGB-code aan te leveren; de zorgorganisatie die hun software gebruikt blijft verantwoordelijk.</p>
+<p>Een organisatie die al via een OVK bij VECOZO is aangesloten, moet vooralsnog een nieuw systeemcertificaat aanvragen voor het iWlz-netwerk. Het bestaande systeemcertificaat kun je niet hergebruiken. De geregistreerde IP-adressen en de toestemmingsverklaring kun je mogelijk wel hergebruiken. Of hergebruik van het certificaat later toch mogelijk wordt, toetsen we nog. Let op: voor het iWlz-netwerk heb je een apart test- en productiecertificaat nodig. Ook meld je je resource-server-endpoints aan (zie §2.3 en §2.4).</p>
+<h3 id="23-aansluiten-op-het-iwlz-netwerk">2.3 Aansluiten op het iWlz-netwerk<a class="headerlink" href="#23-aansluiten-op-het-iwlz-netwerk" title="Permanent link">¶</a></h3>
+<p>Na aansluiting bij VECOZO sluit je aan op het iWlz-netwerk. De vereisten staan in <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/toetreden/#3-aansluiten-op-het-iwlz-netwerk">Aansluiten op het iWlz-netwerk</a> van het artikel Toetreden. De technische aansluiting kent de volgende substappen:</p>
+<ol>
+<li>Systeemcertificaten aanvragen bij VECOZO (voor zowel test- als productieomgeving).</li>
+<li>Systeemcertificaten installeren.</li>
+<li>IP-adressen vastleggen bij het systeemcertificaat in de VECOZO-portal.</li>
+<li>Resource-server-endpoints aanmelden in het tijdelijk adresboek (zie §2.4).</li>
+<li>Toestemmingsverklaring instellen (voor softwareleveranciers en zorginkoopbemiddelaars).</li>
+</ol>
+<h3 id="24-aansluiten-op-het-tijdelijk-adresboek">2.4 Aansluiten op het tijdelijk adresboek<a class="headerlink" href="#24-aansluiten-op-het-tijdelijk-adresboek" title="Permanent link">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Let op: het tijdelijke adresboek is een tussenoplossing. We werken aan een definitieve oplossing, maar weten nog niet hoe die eruit komt te zien. Zodra daar meer over bekend is, laten we dat weten.</p>
+</div>
+<p>Het adresboek bevat de endpoints die aangeven waar notificaties en meldingen naartoe moeten en waar informatie kan worden geraadpleegd. Omdat het zorgadresboek (Zorg-AB) nog niet beschikbaar is, is er een tijdelijk adresboek:</p>
+<p><a href="https://github.com/iStandaarden/iWlz-adresboek-public">github.com/iStandaarden/iWlz-adresboek-public</a></p>
+<p>De softwareleverancier van de zorgaanbieder moet voor aansluiting op het Bemiddelingsregister notificatie-endpoints aanmelden. Zo weet bijvoorbeeld het zorgkantoor bij registratie van een Bemiddelingspecificatie (toewijzing) waar de notificatie naartoe moet. Zodra de softwareleverancier ook het Leveringsregister aansluit, levert hij ook de resource-endpoints en meldingen-endpoints voor het Leveringsregister aan.</p>
+<p><strong>Wijze van aanmelden.</strong> De publieke repo bevat geen self-serviceregistratie. De actuele adreslijst staat in een afgeschermde repo (<code>iWlz-adresboek-private</code>). Aanmelden en wijzigen gaat via de servicedesk iStandaarden:</p>
+<ul>
+<li>E-mail: <a href="mailto:info@istandaarden.nl">info@istandaarden.nl</a></li>
+<li>Contactpersonen: Dennis de Gouw en Remo van Rest</li>
+<li>Toegang tot de private repo vraag je aan met het bericht "Aanvraag toegang iWlz Adresboek private". Vermeld daarbij je organisatie en GitHub-account.</li>
+</ul>
+<p><strong>Structuur van een adresboek-entry.</strong> Elke <code>electronicService</code> heeft een <code>gegevensdienstId</code> volgens de conventie <code>[OrganisatieID]_[Functionaliteit]_[Omgeving]</code> (bijvoorbeeld <code>CIZ_INDICATIE_TST</code>), een <code>weergavenaam</code>, een <code>description</code> en drie endpoint-blokken:</p>
+<ul>
+<li><code>authorizationEndpoint.authorizationEndpointuri</code> (de PEP, zie §2.5)</li>
+<li><code>tokenEndpoint.tokenEndpointuri</code> (de autorisatieserver)</li>
+<li><code>systeemrollen[]</code> met een <code>systeemrolcode</code> en een <code>resourceEndpoint.resourceEndpointuri</code> (de eigenlijke dienst)</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"electronicServices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST OMGEVING Voor het raadplegen van het Wlz Indicatieregister"</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">            </span><span class="nt">"gegevensdienstId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIZ_INDICATIE_TST"</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">            </span><span class="nt">"weergavenaam"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST OMGEVING - Wlz Indicatieregister"</span><span class="p">,</span><span class="w"> </span><span class="nt">"authorizationEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"authorizationEndpointuri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;pep-url&gt;/"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="nt">"tokenEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"tokenEndpointuri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;autorisatieserver-url&gt;/"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="nt">"systeemrollen"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">"systeemrolcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Register"</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">                </span><span class="nt">"resourceEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"resourceEndpointuri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;graphql-endpoint&gt;/"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">                 </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="p">]</span><span class="w"> </span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Registreer per AGB-code de relevante endpoints in het tijdelijk adresboek. Neem hiervoor contact op met iStandaarden.</p>
+</div>
+<h3 id="25-autorisatie-inrichten">2.5 Autorisatie inrichten<a class="headerlink" href="#25-autorisatie-inrichten" title="Permanent link">¶</a></h3>
+<p>Voor notificeren, melden en raadplegen is autorisatie nodig. Je vraagt een access-token (JWT) aan bij de autorisatieserver met een authenticatiemiddel, een of meer scopes en een audience. De flow is OAuth 2.0 Client Credentials.</p>
+<p></p><pre class="mermaid-zoom"><code>---
+config:
+  theme: base
+  themeVariables:
+    background: "#ffffff"
+    primaryColor: "#f2f6fb"
+    primaryTextColor: "#154273"
+    primaryBorderColor: "#c3cedc"
+    actorTextColor: "#154273"
+    signalColor: "#154273"
+    signalTextColor: "#154273"
+    fontFamily: "Helvetica, Arial, sans-serif"
+  sequence:
+    actorMargin: 90
+    messageAlign: center
+    mirrorActors: false
+---
+sequenceDiagram
+    autonumber
+    participant C as Client
+    participant AS as Autorisatieserver
+    participant PEP as PEP
+    participant PDP as PDP
+    participant REG as Register
+    C -&gt;&gt; AS: token-aanvraag (scope + audience)
+    AS --&gt;&gt; C: access-token (sub = agbcode, exp 1u)
+    C -&gt;&gt; PEP: GraphQL + Bearer-token
+    rect rgb(235, 245, 233)
+        PEP -&gt;&gt; PDP: beoordeel grondslag
+        PDP --&gt;&gt; PEP: toegestaan / geweigerd
+    end
+    PEP -&gt;&gt; REG: doorgezet + claims-header
+    REG --&gt;&gt; PEP: respons
+    PEP --&gt;&gt; C: respons</code></pre>
+Figuur 2 - Autorisatie en raadplegen via de PEP<p></p>
+<p><strong>Acteren namens de zorgaanbieder (AGB-actor).</strong> Een softwareleverancier of intermediair handelt namens de zorgaanbieder via het actor-mechanisme. Een zorgaanbieder wordt geïdentificeerd met een AGB-code (een zorgkantoor met een UZOVI-code). In het access-token staat de zorgaanbieder daarom als <code>sub = agbcode:012345678</code>. Het token is maximaal één uur geldig. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/#3-autoriseren">nID netwerkstelsel, 3. Autoriseren</a>.</p>
+<p><strong>Scopes.</strong> Een scope is opgebouwd uit het resource-type en de benodigde toegang. Voor de zorgaanbieder zijn dit de relevante scopes:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Doel</strong></th>
+<th><strong>Scope</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indicatieregister raadplegen</td>
+<td><code>registers/wlzindicatieregister/indicaties:read</code></td>
+</tr>
+<tr>
+<td>Bemiddelingsregister raadplegen</td>
+<td><code>registers/wlzbemiddelingsregister/bemiddelingen/bemiddeling:read</code></td>
+</tr>
+<tr>
+<td>Notificatie aan een zorgaanbieder</td>
+<td><code>organisaties/zorgaanbieder/notificaties/notificatie:create</code></td>
+</tr>
+<tr>
+<td>Melding aan een zorgaanbieder</td>
+<td><code>organisaties/zorgaanbieder/meldingen/melding:create</code></td>
+</tr>
+</tbody>
+</table>
+<p>De specifieke scopes staan ook in de uitwisselprofielen: <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/#82-nid-netwerkstelsel-scopes">Uitwisselprofiel Indicatie, §8.2</a> en <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/#82-nid-netwerkstelsel-scopes">Uitwisselprofiel Bemiddeling, §8.2</a>. Gebruik je een scope die niet is toegekend, dan krijg je "Access denied, invalid scope".</p>
+<p><strong>Audience en PEP.</strong> Je moet precies één audience opgeven, als geldige https-URL. De audience is de afgeschermde <code>resourceEndpointuri</code> van de resource-server, die alleen de Policy Enforcement Point (PEP) van die resource-server vertrouwt. Je raadpleegt het register dus nooit rechtstreeks: al het verkeer loopt via de PEP. De PEP valideert de grondslag (samen met de PDP) en zet het verzoek door naar de resource-server. De audience-URL herken je in het adresboek aan de tag <code>resourceEndpointuri</code>.</p>
+<p>De PEP-endpoints zijn:</p>
+<ul>
+<li>Testomgeving: <code>https://tst-api.vecozo.nl/tst/netwerkmodel/v3/pep</code></li>
+<li>Productieomgeving: <code>https://api.vecozo.nl/netwerkmodel/v3/pep</code></li>
+</ul>
+<h3 id="26-inrichten-notificeren-en-melden">2.6 Inrichten Notificeren en Melden<a class="headerlink" href="#26-inrichten-notificeren-en-melden" title="Permanent link">¶</a></h3>
+<p>Het netwerkmodel ondersteunt het hele iWlz-ketenproces. Daarvoor moet een ketenpartij soms relevante informatie ontvangen. Zo komt de voortgang van de zorglevering niet in gevaar. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/">Notificeren en Melden</a>. Notificeren en melden zijn technisch identiek opgebouwd als GraphQL-mutaties (<code>zendNotificatie</code> en <code>zendMelding</code>); het generieke schema staat in <a href="https://github.com/iStandaarden/iWlz-generiek">iWlz-generiek</a>.</p>
+<h4 id="261-notificaties-ontvangen">2.6.1 Notificaties ontvangen<a class="headerlink" href="#261-notificaties-ontvangen" title="Permanent link">¶</a></h4>
+<p>Een notificatie wijst een deelnemer van het netwerkmodel op nieuwe of gewijzigde informatie die relevant is voor die deelnemer. Aan de hand van de inhoud van de notificatie weet je wat er speelt en doe je een gerichte raadpleging op het register.</p>
+<p>Een zorgaanbieder ontvangt notificaties uit het <strong>Bemiddelingsregister</strong>, en op termijn uit het <strong>Leveringsregister</strong>. Daarmee kun je informatie in het Bemiddelingsregister raadplegen, en via het daarin opgehaalde <code>wlzIndicatieID</code> ook het Indicatieregister (zie §2.7). Je ontvangt geen notificaties uit het Indicatieregister; de twee indicatie-notificaties gaan naar het zorgkantoor.</p>
+<p>Om notificaties te ontvangen, moet je een notificatie-endpoint registreren (zie §2.4).</p>
+<p><strong>Te ontvangen notificaties uit het Bemiddelingsregister</strong> (zie <a href="https://github.com/iStandaarden/iWlz-bemiddeling/blob/Bemiddelingsregister-1/notificaties/README.md">iWlz-bemiddeling, Bemiddelingsregister-1/notificaties</a>):</p>
+<table>
+<thead>
+<tr>
+<th><strong>Notificatie</strong></th>
+<th><strong>Type</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td><code>GEWIJZIGDE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td><code>VERWIJDERDE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td><code>NIEUWE_REGIEHOUDER_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td><code>GEWIJZIGDE_REGIEHOUDER_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td><code>VERWIJDERDE_REGIEHOUDER_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td><code>INFORMATIEVE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Te ontvangen notificatie uit het Leveringsregister</strong> (zie <a href="https://github.com/iStandaarden/iWlz-levering/tree/Leveringsregister-1/notificaties">iWlz-levering, Leveringsregister-1/notificaties</a>):</p>
+<table>
+<thead>
+<tr>
+<th><strong>Notificatie</strong></th>
+<th><strong>Type</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NIEUW_VERZOEKAANBIEDER_AANBIEDER</code></td>
+<td>Verplicht</td>
+</tr>
+</tbody>
+</table>
+<p>Deze notificatie ontvang je als er voor jouw instelling een verzoek (<code>VerzoekAanbieder</code>) is opgenomen door een aanbieder met de regierol.</p>
+<h4 id="262-notificeren-verzenden-van-een-notificatie">2.6.2 Notificeren: verzenden van een notificatie<a class="headerlink" href="#262-notificeren-verzenden-van-een-notificatie" title="Permanent link">¶</a></h4>
+<p>Met de dienst <strong>Notificeren</strong> breng je een deelnemer op de hoogte dat er voor die deelnemer relevante informatie beschikbaar is. Voor de inrichting zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#3-notificaties">Notificeren en Melden, 3. Notificaties</a>.</p>
+<p>Als zorgaanbieder verstuur je notificaties wanneer je gegevens registreert in het Leveringsregister. De volledige lijst staat in <a href="https://github.com/iStandaarden/iWlz-levering/tree/Leveringsregister-1/notificaties">Notificaties Leveringsregister</a>. Op hoofdlijnen:</p>
+<ul>
+<li>Aan het zorgkantoor: nieuwe, gewijzigde en verwijderde <code>LEVERINGPERIODE</code>, <code>BEHANDELINGPERIODE</code>, <code>UITSTELPERIODE</code> en <code>AFSTEL</code>, en <code>NIEUW_VERZOEK_ZORGKANTOOR</code>.</li>
+<li>Aan een andere zorgaanbieder: <code>NIEUW_VERZOEKAANBIEDER_AANBIEDER</code> (zie ook §2.6.1).</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>De notificatie die het leveringsproces voor jou start (een nieuwe Bemiddelingspecificatie/toewijzing) komt uit het Bemiddelingsregister, niet uit het Leveringsregister.</p>
+</div>
+<h4 id="263-melden">2.6.3 Melden<a class="headerlink" href="#263-melden" title="Permanent link">¶</a></h4>
+<p>Andersom kun je de bronhouder voorzien van nieuwe informatie. Dat heet <strong>Melden</strong> (deelnemer naar bronhouder). Voor de inrichting zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#4-meldingen">Notificeren en Melden, 4. Meldingen</a>.</p>
+<p>In de eerste implementatie is alleen de <strong>foutmelding</strong> uitgewerkt (<code>eventType: IWLZFOUTMELDING</code>). Deze foutmelding vervangt het oude foutbericht uit het estafettemodel (zie §2.10). Meldingen vervangen op dit moment alleen foutberichten. Daarom registreert alleen de bronhouder een melding-endpoint. Word je zelf bronhouder van het Leveringsregister, dan registreer je daarvoor een melding-endpoint (zie §2.4).</p>
+<h3 id="27-inrichten-raadplegen">2.7 Inrichten Raadplegen<a class="headerlink" href="#27-inrichten-raadplegen" title="Permanent link">¶</a></h3>
+<p>Je raadpleegt een register met een GraphQL-query. Als de raadpleging aan de autorisatie en aan het toegestane patroon voldoet, ontvang je de gegevens terug. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/">Raadplegen</a> en <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/#graphql-over-http">GraphQL over HTTP</a>.</p>
+<p>Per register zijn er raadpleeg-use-cases met bijbehorende query-templates. Wijkt je query af van dit patroon, dan keurt de resource-server de query af. De use-cases vind je via de <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/#uitwisselprofielen">Uitwisselprofielen</a>.</p>
+<p><strong>De raadpleeg-keten voor de zorgaanbieder.</strong> De toegang tot het Indicatieregister loopt via het Bemiddelingsregister: uit het Bemiddelingsregister haal je het <code>wlzIndicatieID</code> (de sleutel), en de bemiddelingspecificatie waarin jouw instelling staat is tegelijk de autorisatiegrondslag voor de indicatie-raadpleging.</p>
+<p></p><pre class="mermaid-zoom"><code>---
+config:
+  theme: base
+  themeVariables:
+    background: "#ffffff"
+    primaryColor: "#eaf4fb"
+    primaryTextColor: "#154273"
+    primaryBorderColor: "#005c96"
+    lineColor: "#475569"
+    edgeLabelBackground: "#ffffff"
+    fontFamily: "Helvetica, Arial, sans-serif"
+---
+flowchart TB
+    NOT["Notificatie uit Bemiddelingsregister"]
+    OVL["Overlap + contactgegevens&lt;br/&gt;UCBR-0002_3 &amp;middot; QBR-0002/0003-ZA"]
+    BR["&lt;b&gt;1 &amp;middot; Bemiddelingsregister raadplegen&lt;/b&gt;&lt;br/&gt;UCBR-0001 &amp;middot; QBR-0001-ZA&lt;br/&gt;input: bemiddelingspecificatieID + eigen AGB"]
+    RGH["Regiehouder&lt;br/&gt;QBR-0009-ZAr"]
+    IR["&lt;b&gt;2 &amp;middot; Indicatieregister raadplegen&lt;/b&gt;&lt;br/&gt;UCIR-0002 &amp;middot; QIR-0002-ZA&lt;br/&gt;input: wlzIndicatieID"]
+    NOT --&gt; BR
+    BR -.-&gt; OVL
+    BR -- "levert wlzIndicatieID" --&gt; IR
+    BR -.-&gt; RGH
+    classDef notificatie fill:#fbf3c5,stroke:#d9be45,color:#0f172a,font-weight:bold
+    classDef stap fill:#eaf4fb,stroke:#005c96,color:#154273
+    classDef zijtak fill:#f2f6fb,stroke:#c3cedc,color:#0f172a
+    class NOT notificatie
+    class BR,IR stap
+    class OVL,RGH zijtak
+    linkStyle 2 stroke:#005c96,color:#005c96,font-weight:bold</code></pre>
+Figuur 3 - Raadpleeg-keten zorgaanbieder: Bemiddelingsregister naar Indicatieregister<p></p>
+<p>Beschikbare query-templates voor de actor zorgaanbieder:</p>
+<ul>
+<li>Bemiddelingsregister: <code>QBR-0001-ZA</code> (eigen bemiddelingspecificatie), <code>QBR-0002-ZA</code> en <code>QBR-0003-ZA</code> (overlap en contactgegevens), <code>QBR-0009-ZAr</code> (regiehouder).</li>
+<li>Indicatieregister: <code>QIR-0002-ZA</code> (Wlz-indicatie op basis van <code>wlzIndicatieID</code>).</li>
+<li>Leveringsregister: <code>QLR-0001-ZA</code>, <code>QLR-0001_1-ZA</code>, <code>QLR-0001_2_ZA</code> (levering), <code>QLR-0002-ZA</code> (VerzoekAanbieder).</li>
+</ul>
+<p>Let bij het bouwen op de eisen uit <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/#graphql-over-http">GraphQL over HTTP</a> en §2.10.</p>
+<h3 id="28-inrichten-van-het-leveringsregister">2.8 Inrichten van het Leveringsregister<a class="headerlink" href="#28-inrichten-van-het-leveringsregister" title="Permanent link">¶</a></h3>
+<p>Het <a href="https://www.istandaarden.nl/algemeen/over-leveringsregister-1-0">Leveringsregister 1</a> is het register waarin je als zorgaanbieder de zorglevering registreert. Het vervangt de berichten <strong>AW35</strong> (aanvang) en <strong>AW39</strong> (mutatie en beëindiging, inclusief de aanvraag aangepaste toewijzing).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Het Leveringsregister 1 is op dit moment een <strong>Release Candidate</strong> (versie 1.0-rc1, 29-01-2026). De raadpleeg-use-cases en toegangscontroles zijn nog als concept gepubliceerd. Schema en queries kunnen nog wijzigen. Houd dit voorbehoud aan bij je implementatie.</p>
+</div>
+<p>Als zorgaanbieder registreer je onder andere de volgende klassen (zie het <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/">informatiemodel Leveringsregister 1</a>):</p>
+<ul>
+<li><code>Client</code>, <code>Levering</code> (gekoppeld aan de toewijzing via <code>bemiddelingspecificatieID</code>)</li>
+<li><code>Leveringperiode</code> en <code>Behandelingperiode</code> (aanvang en verloop van de levering; vervangt AW35)</li>
+<li><code>Uitstelperiode</code> (wachtlijst- en statusgegevens: <code>leveringsstatus</code>, <code>leveringsstatusClassificatie</code>)</li>
+<li><code>Afstel</code> (afzien van levering)</li>
+<li><code>Verzoek</code> en <code>VerzoekAanbieder</code> (verzoek aangepaste toewijzing aan een andere aanbieder)</li>
+</ul>
+<p>Je inzage als raadpleger is read-only en geregeld via de autorisatieregels LRA0005 (leveringstatus bij overlappende toewijzingen van andere aanbieders) en LRA0006 (het Verzoek waarin voor jou een aanvraag is opgenomen).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Het GraphQL-koppelvlak van het Leveringsregister 1 beschrijft op dit moment alleen raadplegen (<code>Query</code>). Het registreren/vullen is procesmatig beschreven (proces Leveren, gegevens- en invulinstructieregels) en je verstuurt de bijbehorende notificaties (§2.6.2), maar het schrijf-/aanleverkoppelvlak is geen onderdeel van de iStandaarden. Je bent zelf verantwoordelijk voor de vulling van het register.</p>
+</div>
+<h3 id="29-initieel-vullen-van-het-leveringsregister">2.9 Initieel vullen van het Leveringsregister<a class="headerlink" href="#29-initieel-vullen-van-het-leveringsregister" title="Permanent link">¶</a></h3>
+<p>Dit onderdeel is nog in ontwikkeling. Zodra de procedure voor de initiële vulling zijn vastgesteld, werken we dit onderdeel uit.</p>
+<h3 id="210-foutafhandeling">2.10 Foutafhandeling<a class="headerlink" href="#210-foutafhandeling" title="Permanent link">¶</a></h3>
+<p>Het retourbericht uit het estafettemodel (AW34/AW36/AW310) vervalt. Foutafhandeling verloopt nu langs twee lijnen:</p>
+<ol>
+<li><strong>Synchrone respons op de aanroep.</strong> Volg de eisen uit <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/">GraphQL over HTTP</a>:</li>
+<li>Verstuur requests via HTTP POST met <code>Content-Type: application/json</code>.</li>
+<li>Het verplichte response-mediatype is <code>application/graphql-response+json</code>. Vraag je <code>application/json</code> in de accept-header, dan krijg je een <code>406 Not Acceptable</code>.</li>
+<li>Een <code>200 OK</code> kan zowel <code>data</code> als <code>errors</code> bevatten (partieel resultaat); een volledige fout levert een 4xx.</li>
+<li><strong>Foutmelding via Melden.</strong> De bronhouder geeft inhoudelijke regelfouten terug als foutmelding met <code>eventType: IWLZFOUTMELDING</code>. Waarbij het onderwerp verwijst naar de overtreden gegevensregel- of restrictiecode.</li>
+</ol>
+<p>Daarnaast definieert het <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/">nID netwerkstelsel</a> de autorisatie-/toegangsfouten (onder andere 403 bij ontbrekende grondslag of niet-passende scope).</p>
+<h3 id="211-logging-en-tracing">2.11 Logging en tracing<a class="headerlink" href="#211-logging-en-tracing" title="Permanent link">¶</a></h3>
+<p>Je houdt als deelnemer een auditlogboek bij (zie nID netwerkstelsel). De PEP zet bij het doorzetten naar de resource-server een claims-header mee, die de resource-server voor logging kan gebruiken. Tracelogging is uitgewerkt in het artikel <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/it-infrastructuur/logging/">Logging</a>. </p>
+<p>Voeg aan elk request dat je binnen het netwerkmodel naar een andere dienst stuurt twee headers toe, conform de <a href="https://github.com/openzipkin/b3-propagation">B3 Propagation-standaard</a>:
+  - <code>X-B3-TraceId</code>: 16 bytes (32 hexadecimale tekens, lowercase), niet uitsluitend nullen, uniek per ketenverzoek.
+  - <code>X-B3-SpanId</code>: 8 bytes (16 hexadecimale tekens, lowercase), uniek per verwerkingsstap.
+  Genereer deze waarden met de <a href="https://opentelemetry.io/docs/">OpenTelemetry SDK</a> (bijvoorbeeld <code>@opentelemetry/api</code> voor Node.js). Ontbreekt een binnenkomende <code>TraceId</code>, genereer dan een nieuwe. Voor fase 1 en de ketentest geldt: een nieuwe <code>TraceId</code> per afzonderlijke interactie (melding, raadpleging, notificatie); het doorgeven van een bestaande <code>TraceId</code> tussen interacties is nog geen vereiste. Voorbeeld:</p>
+<p><code>X-B3-TraceId: 463ac35c9f6413ad48485a3953bb6124 X-B3-SpanId: 0020000000000001</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../1-wat-verandert-er/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: 1 Wat verandert er">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                1 Wat verandert er
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../3-testen/" class="md-footer__link md-footer__link--next" aria-label="Volgende: 3 Testen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                3 Testen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "navigation.tracking", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.indexes", "navigation.path", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": {"default": "current", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/javascripts/svg-pan-zoom.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascripts/mermaid-zoom.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
