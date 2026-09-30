@@ -14,5 +14,5 @@ Daarbij zal worden verwezen naar de verschillende onderdelen van het Netwerkmode
     - 
 
 
-Op dit moment is er een handleiding voor de aansluiting als [zorgaanbieder](./zorgaanbieder/ta-zorgaanbieder.md) op het Bemiddelingsregister en Indicatieregister.
+Op dit moment is er een handleiding voor de aansluiting als [zorgaanbieder](./zorgaanbieder/index.md) op het Bemiddelingsregister en Indicatieregister.
 

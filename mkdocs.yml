@@ -119,7 +119,7 @@ nav:
       - Release notes: welkom/release-notes.md
   - Zorgaanbieder:
       - zorgaanbieder/index.md
-      - Wat verandert er: zorgaanbieder/wat-verandert-er.md
-      - Implementatiestappen: zorgaanbieder/implementatiestappen.md
-      - Testen: zorgaanbieder/testen.md
+      - 1 Wat verandert er: zorgaanbieder/1-wat-verandert-er.md
+      - 2 Implementatiestappen: zorgaanbieder/2-implementatiestappen.md
+      - 3 Testen: zorgaanbieder/3-testen.md
 
