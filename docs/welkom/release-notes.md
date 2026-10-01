@@ -5,7 +5,7 @@
 
 ## Release notes
 
-### Versie x.x.x - dd
+### Versie 1.0.0 - 01-10-2026
 
 | Onderdeel | Hoofdstuk | Wijzigen t.o.v. vorige release | Bron wijzigingen |
 | :-- | :-- | :-- | :-- |
