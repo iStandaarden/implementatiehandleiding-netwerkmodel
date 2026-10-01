@@ -118,4 +118,8 @@ nav:
       - Versiebeheer: welkom/versiebeheer.md
       - Release notes: welkom/release-notes.md
   - Zorgaanbieder:
-      - zorgaanbieder/ta-zorgaanbieder.md
+      - zorgaanbieder/index.md
+      - 1 Wat verandert er: zorgaanbieder/1-wat-verandert-er.md
+      - 2 Implementatiestappen: zorgaanbieder/2-implementatiestappen.md
+      - 3 Testen: zorgaanbieder/3-testen.md
+
