@@ -9,3 +9,4 @@
 
 | Onderdeel | Hoofdstuk | Wijzigen t.o.v. vorige release | Bron wijzigingen |
 | :-- | :-- | :-- | :-- |
+| Implementatiehandleiding Zorgaanbieder | n.v.t. | 1e release | Geen  |  
