@@ -1,0 +1,122 @@
+name: Mutatieoverzicht bij release Implementatiehandleiding iWlz
+
+# automatisch: workflow start bij publiceren van een release (niet bij concept/draft).
+# Alleen handmatig: Releases -> "Draft a new release" -> "Publish release".
+# Een opgeslagen concept (draft) start de workflow niet, pas bij publiceren.
+# het genereerd mutatieoverzicht wordt toegevoegd aan de releasebeschrijving.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag van de release waaraan het mutatieoverzicht moet worden toegevoegd"
+        required: true
+        type: string
+
+permissions:
+  contents: write   # nodig om de releasebeschrijving bij te werken
+
+jobs:
+  mutatieoverzicht:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # volledige historie + tags nodig voor de diff
+
+      - name: Bepaal te vergelijken commits
+        id: range
+        run: |
+          # Vorige tag = dichtstbijzijnde tag in de historie van de nieuwe tag
+          PREV_TAG=$(git describe --tags --abbrev=0 "${TAG}^" 2>/dev/null || true)
+          BASE_REF="${PREV_TAG:-$(git hash-object -t tree /dev/null)}"
+
+          {
+            echo "prev=$PREV_TAG"
+            echo "base=$BASE_REF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Detect changed directories
+        id: changes
+        env:
+          BASE_REF: ${{ steps.range.outputs.base }}
+        run: |
+          CHANGED_FILES=$(git diff --name-only "$BASE_REF" "$TAG")
+
+          # directory-prefix match
+          check_dir() {
+            local dir="$1"
+            if echo "$CHANGED_FILES" | grep -q "^$dir"; then
+              echo "yes"
+            else
+              echo "no"
+            fi
+          }
+
+          # exact file match instead of directory prefix
+          check_file() {
+            local file="$1"
+            if echo "$CHANGED_FILES" | grep -qxF "$file"; then
+              echo "yes"
+            else
+              echo "no"
+            fi
+          }
+
+          # Specific directory output
+          echo "welkom=$(check_dir 'docs/welkom/')" >> "$GITHUB_OUTPUT"
+          echo "zorgaanbieder=$(check_dir 'docs/zorgaanbieder/')" >> "$GITHUB_OUTPUT"
+          # Specific file output
+          echo "zorgaanbieder_index=$(check_file 'docs/zorgaanbieder/index.md')" >> "$GITHUB_OUTPUT"
+          echo "zorgaanbieder_watveranderder=$(check_file 'docs/zorgaanbieder/1-wat-verandert-er.md')" >> "$GITHUB_OUTPUT"
+          echo "zorgaanbieder_implementatiestappen=$(check_file 'docs/zorgaanbieder/2-implementatiestappen.md')" >> "$GITHUB_OUTPUT"
+          echo "zorgaanbieder_testen=$(check_file 'docs/zorgaanbieder/3-testen.md')" >> "$GITHUB_OUTPUT"
+
+      - name: Haal bestaande releasetekst op
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release view "$TAG" --json body --jq .body > existing-body.txt
+
+      - name: Bouw release-tekst
+        env:
+          PREV_TAG: ${{ steps.range.outputs.prev }}
+        run: |
+          {
+            echo "Automatisch gegenereerd mutatieoverzicht van het afsprakenstelsel iWlz."
+            if [ -n "$PREV_TAG" ]; then
+              echo "Wijzigingen ten opzichte van \`${PREV_TAG}\`."
+            else
+              echo "Er is geen eerdere tag gevonden; er is vergeleken met een lege repository."
+            fi
+            echo
+          } > release-body.md
+
+          cat >> release-body.md <<'EOF'
+          **Release bevat de volgende wijzigingen in de volgende onderdelen:**
+
+          | Onderdeel | Wijziging |
+          |-----------|-----------|
+          | Welkom: | ${{ steps.changes.outputs.welkom }} |
+          | Zorgaanbieder: | ${{ steps.changes.outputs.zorgaanbieder }} |
+          | Zorgaanbieder index.md: | ${{ steps.changes.outputs.zorgaanbieder_index }} |
+          | Zorgaanbieder 1-wat-verandert-er.md: | ${{ steps.changes.outputs.zorgaanbieder_watveranderder }} |
+          | Zorgaanbieder 2-implementatiestappen.md: | ${{ steps.changes.outputs.zorgaanbieder_implementatiestappen }} |
+          | Zorgaanbieder 3-testen.md: | ${{ steps.changes.outputs.zorgaanbieder_testen }} |
+ 
+          Voor meer informatie over de wijzigingen, zie hieronder.
+          EOF
+
+          # Bestaande releasetekst (bijv. gegenereerde release notes) onder het overzicht
+          if [ -s existing-body.txt ]; then
+            printf '\n---\n\n' >> release-body.md
+            cat existing-body.txt >> release-body.md
+          fi
+
+      - name: Update releasebeschrijving
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release edit "$TAG" --notes-file release-body.md
