@@ -62,6 +62,25 @@ theme:
 plugins:
   - search
   - glightbox
+  - git-revision-date-localized:
+      type: date
+      locale: nl_NL
+      timezone: Europe/Amsterdam
+      fallback_to_build_date: true
+      enable_creation_date: false
+  - to-pdf:
+      enabled_if_env: ENABLED_PDF_EXPORT
+      cover_title: Implementatiehandleiding iWlz
+      cover_subtitle: !ENV [PDF_VERSION_LABEL, "onbekende versie"]
+      cover_logo: docs/assets/ZinBanner.png
+      copyright: "iStandaarden.nl"
+      output_path: pdf/implementatiehandleiding-iWlz.pdf
+      toc_title: Inhoudsopgave
+      toc_level: 3
+      # heading_shift: true
+      # ordered_chapter_level: 2
+      cover: true
+      back_cover: false
 
 # Custom CSS
 extra_css:

@@ -4,7 +4,8 @@
 
 | Versie | Datum ingang | Status | 
 | :-- | :-- | :-- | 
-| 1.0.0 | 01-10-2026 | Definitief |
+| [Versie: 1.0.1](release-notes.md#versie-100---01-10-2026) | 16-10-2026 | Definitief |
+
 
 
 ## In Ontwikkeling (future)
@@ -17,5 +18,6 @@
 ## Archief 
 | Versie | Datum ingang | Status | 
 | :-- | :-- | :-- | 
+| [Versie: 1.0.0](./release-notes.md#versie-100---01-10-2026) | 01-10-2026 | Definitief |
 
 
