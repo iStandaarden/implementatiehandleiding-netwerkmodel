@@ -41,27 +41,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      - name: Install system dependencies for WeasyPrint
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libpango-1.0-0 \
-            libpangocairo-1.0-0 \
-            libgdk-pixbuf2.0-0 \
-            libffi-dev \
-            libcairo2 \
-            shared-mime-info
-
-      # - run: pip install mkdocs-material mkdocs-glightbox mkdocs-to-pdf mike
-      - run: pip install mkdocs-material mkdocs-glightbox mkdocs-to-pdf mike mkdocs-git-revision-date-localized-plugin
-
-      - name: Enable PDF export
-        run: echo "ENABLED_PDF_EXPORT=1" >> $GITHUB_ENV
+      - run: pip install mkdocs-material mkdocs-glightbox mike mkdocs-git-revision-date-localized-plugin
 
       # --- Staging publicatie ---
-      - name: Set version label for PDF cover (staging)
-        if: startsWith(github.ref, 'refs/heads/staging')
-        run: 'echo "PDF_VERSION_LABEL=Staging build: ${{ github.ref_name }}" >> $GITHUB_ENV'
 
       - name: Build site
         if: startsWith(github.ref, 'refs/heads/staging')
@@ -87,10 +69,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         id: current_version
         run: echo "value=$(tr -d '[:space:]' < current-version.txt)" >> "$GITHUB_OUTPUT"
-
-      - name: Set version label for PDF cover (main)
-        if: github.ref == 'refs/heads/main'
-        run: echo "PDF_VERSION_LABEL=Versie ${{ steps.current_version.outputs.value }} (actueel)" >> $GITHUB_ENV
 
       - name: Deploy current version with mike (main → /<versie>/, alias current → /)
         if: github.ref == 'refs/heads/main'
@@ -140,10 +118,6 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
         id: future_version
         run: echo "value=$(tr -d '[:space:]' < future-version.txt)" >> "$GITHUB_OUTPUT"
-
-      - name: Set version label for PDF cover (future)
-        if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
-        run: echo "PDF_VERSION_LABEL=Versie ${{ steps.future_version.outputs.value }} ${{ inputs.future_title }}" >> $GITHUB_ENV
 
       - name: Deploy future version with mike (future → /<versie>/, alias future, geen default)
         if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'

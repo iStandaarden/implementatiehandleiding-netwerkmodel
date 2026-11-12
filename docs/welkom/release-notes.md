@@ -2,6 +2,12 @@
 
 ## Release notes
 
+### Versie 1.0.2 - 12-11-2026
+
+| Onderdeel | Hoofdstuk | Wijzigen t.o.v. vorige release | Bron wijzigingen |
+| :-- | :-- | :-- | :-- |
+| Alle | Alle | <ul><li> huisstijl <li>pdf download verwijderd - (faalt) <li>leesbaarheid</ul> | |
+
 ### Versie 1.0.1 - 16-10-2026
 
 | Onderdeel | Hoofdstuk | Wijzigen t.o.v. vorige release | Bron wijzigingen |
