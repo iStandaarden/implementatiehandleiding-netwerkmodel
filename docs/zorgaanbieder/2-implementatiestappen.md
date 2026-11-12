@@ -279,4 +279,3 @@ Voeg aan elk request dat je binnen het netwerkmodel naar een andere dienst stuur
 
 `X-B3-TraceId: 463ac35c9f6413ad48485a3953bb6124 X-B3-SpanId: 0020000000000001`
 
-

@@ -1,0 +1,4 @@
+mkdocs-material 
+mkdocs-glightbox 
+mike 
+mkdocs-git-revision-date-localized-plugin

@@ -68,20 +68,6 @@ plugins:
       timezone: Europe/Amsterdam
       fallback_to_build_date: true
       enable_creation_date: false
-  - to-pdf:
-      enabled_if_env: ENABLED_PDF_EXPORT
-      cover_title: Implementatiehandleiding iWlz
-      cover_subtitle: !ENV [PDF_VERSION_LABEL, "onbekende versie"]
-      cover_logo: docs/assets/ZinBanner.png
-      copyright: "iStandaarden.nl"
-      output_path: pdf/implementatiehandleiding-iWlz.pdf
-      toc_title: Inhoudsopgave
-      toc_level: 3
-      # heading_shift: true
-      # ordered_chapter_level: 2
-      cover: true
-      back_cover: false
-
 # Custom CSS
 extra_css:
   - css/zin.css
@@ -90,9 +76,7 @@ extra_css:
 
 # extra JavaScript
 extra_javascript:
-  - assets/javascripts/svg-pan-zoom.min.js
   - https://unpkg.com/mermaid/dist/mermaid.min.js
-  # - assets/javascripts/mermaid-panzoom.js
   - assets/javascripts/mermaid-zoom.js
 
 extra:
@@ -137,8 +121,8 @@ nav:
       - Versiebeheer: welkom/versiebeheer.md
       - Release notes: welkom/release-notes.md
   - Zorgaanbieder:
-      - zorgaanbieder/index.md
-      - 1 Wat verandert er: zorgaanbieder/1-wat-verandert-er.md
-      - 2 Implementatiestappen: zorgaanbieder/2-implementatiestappen.md
-      - 3 Testen: zorgaanbieder/3-testen.md
-
+      - Inleiding: zorgaanbieder/index.md
+      - Wat verandert er: zorgaanbieder/1-wat-verandert-er.md
+      - Implementatiestappen: zorgaanbieder/2-implementatiestappen.md
+      - Testen: zorgaanbieder/3-testen.md
+      - Cheat sheet: zorgaanbieder/4-cheatsheet.md
