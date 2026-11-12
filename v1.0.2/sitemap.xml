@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/welkom/release-notes/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/welkom/versiebeheer/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/zorgaanbieder/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/zorgaanbieder/1-wat-verandert-er/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/zorgaanbieder/2-implementatiestappen/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/zorgaanbieder/3-testen/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://istandaarden.github.io/implementatiehandleiding-netwerkmodel/v1.0.2/zorgaanbieder/4-cheatsheet/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+</urlset>
