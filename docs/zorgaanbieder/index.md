@@ -7,6 +7,7 @@
     - **Wat verandert er** beschrijft wat er verandert ten opzichte van het estafettemodel: het procesconcept, de inhoudelijke wijzigingen in het informatiemodel, en de gegevensmapping op hoofdlijnen.
     - **Implementatie** beschrijft de implementatiestappen in de aanbevolen volgorde.
     - **Testen** geeft handvaten voor een ketentest.  
+    - **Cheat sheet** een samenvattend overzicht van de implementatiestappen.
 
 
 ## Inleiding

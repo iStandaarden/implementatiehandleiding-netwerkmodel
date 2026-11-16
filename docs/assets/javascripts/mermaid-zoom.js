@@ -111,8 +111,9 @@
 
     var svg = stage.querySelector("svg");
     var natuurlijkeHoogte = svg.getBoundingClientRect().height || 400;
-    var normaleHoogte = Math.max(180, Math.min(Math.ceil(natuurlijkeHoogte) + 32, Math.round(window.innerHeight * 0.7)));
-    blok.style.height = normaleHoogte + "px";
+    var gewenst = getComputedStyle(blok).getPropertyValue("--mermaid-zoom-hoogte").trim();
+    var normaleHoogte = gewenst || (Math.max(180, Math.min(Math.ceil(natuurlijkeHoogte) + 32, Math.round(window.innerHeight * 0.7))) + "px");
+    blok.style.height = normaleHoogte;
 
     svg.style.maxWidth = "none";
     svg.style.width = "100%";
@@ -138,7 +139,7 @@
     var knop = maakFullscreenKnop(blok, herpas);
     blok.appendChild(knop);
     document.addEventListener("fullscreenchange", function () {
-      blok.style.height = document.fullscreenElement === blok ? "100%" : normaleHoogte + "px";
+      blok.style.height = document.fullscreenElement === blok ? "100%" : normaleHoogte;
       setTimeout(herpas, 150);
     });
     window.addEventListener("resize", function () { setTimeout(herpas, 150); });

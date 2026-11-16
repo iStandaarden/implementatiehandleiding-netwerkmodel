@@ -78,6 +78,7 @@ extra_css:
 extra_javascript:
   - https://unpkg.com/mermaid/dist/mermaid.min.js
   - assets/javascripts/mermaid-zoom.js
+  - assets/javascripts/external-links.js
 
 extra:
   # --- mike-versioning ---
