@@ -1028,15 +1028,15 @@
 <p>Vergelijk je huidige estafette-implementatie met het netwerkmodel. Pas je software waar nodig aan. Gebruik daarvoor concreet:</p>
 <ol>
 <li><strong>Gegevens (veld-voor-veld):</strong> de mapping <strong>"Mapping Bemiddelingsregister - AW33"</strong> bij <a href="https://www.istandaarden.nl/domain/iwlz/specificaties/release-1">iWlz Bemiddelingsregister 1</a>. Hierin staat hoe de gegevens uit het Indicatie- en Bemiddelingsregister overeenkomen met de AW33.</li>
-<li><strong>Informatiemodel (concepten):</strong> vergelijk het <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/">estafette-informatiemodel iWlz 2.4</a> dat je nu in productie hebt met de netwerkmodel-registers (<a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/">Bemiddelingsregister 1</a>, <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/">Indicatieregister</a>, <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/">Leveringsregister 1</a>). Het overzicht in §1.2 (artikel: Wat verandert er) helpt bij de inhoudelijke verschillen.</li>
+<li><strong>Informatiemodel (concepten):</strong> vergelijk het <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/estafette/2.4/">Informatiemodel iWlz 2.4</a> dat je nu in productie hebt met de netwerkmodel-registers (<a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/">Bemiddelingsregister 1</a>, <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/indicatieregister-2/">Indicatieregister</a>, <a href="https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/leveringsregister-1/">Leveringsregister 1</a>). Het overzicht in §1.2 (artikel: Wat verandert er) helpt bij de inhoudelijke verschillen.</li>
 <li><strong>Proces en regels:</strong> beoordeel of je procesafhandeling past bij het wegvallen van de estafette-volgorde en de retourberichten (artikel: Wat verandert er &gt; §1.1 en artikel: Implementatiestappen &gt; §2.10).</li>
 </ol>
 <h3 id="22-aansluiten-bij-vecozo">2.2 Aansluiten bij VECOZO<a class="headerlink" href="#22-aansluiten-bij-vecozo" title="Permanent link">¶</a></h3>
-<p>Gebruik van het iWlz-netwerk vereist aansluiting bij VECOZO. De vereisten staan in <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/toetreden/#2-aansluiten-bij-vecozo/">Aansluiten bij VECOZO</a> van het artikel Toetreden. Voor het aansluiten heb je onder andere een KvK-nummer, een AGB-code en een ondertekende aansluitovereenkomst (OVK) met VECOZO nodig. Ook moet de zorgorganisatie voldoen aan NEN 7510.</p>
+<p>Gebruik van het iWlz-netwerk vereist aansluiting bij VECOZO. De vereisten staan in <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/toetreden/#2-aansluiten-bij-vecozo/">Afsprakenstelsel iWlz &gt; Aansluiten bij VECOZO</a> van het artikel Toetreden. Voor het aansluiten heb je onder andere een KvK-nummer, een AGB-code en een ondertekende aansluitovereenkomst (OVK) met VECOZO nodig. Ook moet de zorgorganisatie voldoen aan NEN 7510.</p>
 <p>Softwareleveranciers en zorginkoopbemiddelaars hoeven niet zelf NEN 7510-gecertificeerd te zijn en hoeven geen eigen AGB-code aan te leveren; de zorgorganisatie die hun software gebruikt blijft verantwoordelijk.</p>
 <p>Een organisatie die al via een OVK bij VECOZO is aangesloten, moet vooralsnog een nieuw systeemcertificaat aanvragen voor het iWlz-netwerk. Het bestaande systeemcertificaat kun je niet hergebruiken. De geregistreerde IP-adressen en de toestemmingsverklaring kun je mogelijk wel hergebruiken. Of hergebruik van het certificaat later toch mogelijk wordt, toetsen we nog. Let op: voor het iWlz-netwerk heb je een apart test- en productiecertificaat nodig. Ook meld je je resource-server-endpoints aan (zie §2.3 en §2.4).</p>
 <h3 id="23-aansluiten-op-het-iwlz-netwerk">2.3 Aansluiten op het iWlz-netwerk<a class="headerlink" href="#23-aansluiten-op-het-iwlz-netwerk" title="Permanent link">¶</a></h3>
-<p>Na aansluiting bij VECOZO sluit je aan op het iWlz-netwerk. De vereisten staan in <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/toetreden/#3-aansluiten-op-het-iwlz-netwerk">Aansluiten op het iWlz-netwerk</a> van het artikel Toetreden. De technische aansluiting kent de volgende substappen:</p>
+<p>Na aansluiting bij VECOZO sluit je aan op het iWlz-netwerk. De vereisten staan in <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/toetreden/#3-aansluiten-op-het-iwlz-netwerk">Afsprakenstelsel iWlz &gt; Aansluiten op het iWlz-netwerk</a> van het artikel Toetreden. De technische aansluiting kent de volgende substappen:</p>
 <ol>
 <li>Systeemcertificaten aanvragen bij VECOZO (voor zowel test- als productieomgeving).</li>
 <li>Systeemcertificaten installeren.</li>
@@ -1121,7 +1121,7 @@ sequenceDiagram
     REG --&gt;&gt; PEP: respons
     PEP --&gt;&gt; C: respons</code></pre>
 Figuur 2 - Autorisatie en raadplegen via de PEP<p></p>
-<p><strong>Acteren namens de zorgaanbieder (AGB-actor).</strong> Een softwareleverancier of intermediair handelt namens de zorgaanbieder via het actor-mechanisme. Een zorgaanbieder wordt geïdentificeerd met een AGB-code (een zorgkantoor met een UZOVI-code). In het access-token staat de zorgaanbieder daarom als <code>sub = agbcode:012345678</code>. Het token is maximaal één uur geldig. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/#3-autoriseren">nID netwerkstelsel, 3. Autoriseren</a>.</p>
+<p><strong>Acteren namens de zorgaanbieder (AGB-actor).</strong> Een softwareleverancier of intermediair handelt namens de zorgaanbieder via het actor-mechanisme. Een zorgaanbieder wordt geïdentificeerd met een AGB-code (een zorgkantoor met een UZOVI-code). In het access-token staat de zorgaanbieder daarom als <code>sub = agbcode:012345678</code>. Het token is maximaal één uur geldig. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/#3-autoriseren">Afsprakenstelsel iWlz &gt; nID netwerkstelsel, 3. Autoriseren</a>.</p>
 <p><strong>Scopes.</strong> Een scope is opgebouwd uit het resource-type en de benodigde toegang. Voor de zorgaanbieder zijn dit de relevante scopes:</p>
 <table>
 <thead>
@@ -1149,7 +1149,7 @@ Figuur 2 - Autorisatie en raadplegen via de PEP<p></p>
 </tr>
 </tbody>
 </table>
-<p>De specifieke scopes staan ook in de uitwisselprofielen: <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/#82-nid-netwerkstelsel-scopes">Uitwisselprofiel Indicatie, §8.2</a> en <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/#82-nid-netwerkstelsel-scopes">Uitwisselprofiel Bemiddeling, §8.2</a>. Gebruik je een scope die niet is toegekend, dan krijg je "Access denied, invalid scope".</p>
+<p>De specifieke scopes staan ook in de uitwisselprofielen: <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/#82-nid-netwerkstelsel-scopes">Afsprakenstelsel iWlz &gt; Uitwisselprofiel Indicatie, §8.2</a> en <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/#82-nid-netwerkstelsel-scopes">Afsprakenstelsel iWlz &gt; Uitwisselprofiel Bemiddeling, §8.2</a>. Gebruik je een scope die niet is toegekend, dan krijg je "Access denied, invalid scope".</p>
 <p><strong>Audience en PEP.</strong> Je moet precies één audience opgeven, als geldige https-URL. De audience is de afgeschermde <code>resourceEndpointuri</code> van de resource-server, die alleen de Policy Enforcement Point (PEP) van die resource-server vertrouwt. Je raadpleegt het register dus nooit rechtstreeks: al het verkeer loopt via de PEP. De PEP valideert de grondslag (samen met de PDP) en zet het verzoek door naar de resource-server. De audience-URL herken je in het adresboek aan de tag <code>resourceEndpointuri</code>.</p>
 <p>De PEP-endpoints zijn:</p>
 <ul>
@@ -1157,7 +1157,7 @@ Figuur 2 - Autorisatie en raadplegen via de PEP<p></p>
 <li>Productieomgeving: <code>https://api.vecozo.nl/netwerkmodel/v3/pep</code></li>
 </ul>
 <h3 id="26-inrichten-notificeren-en-melden">2.6 Inrichten Notificeren en Melden<a class="headerlink" href="#26-inrichten-notificeren-en-melden" title="Permanent link">¶</a></h3>
-<p>Het netwerkmodel ondersteunt het hele iWlz-ketenproces. Daarvoor moet een ketenpartij soms relevante informatie ontvangen. Zo komt de voortgang van de zorglevering niet in gevaar. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/">Notificeren en Melden</a>. Notificeren en melden zijn technisch identiek opgebouwd als GraphQL-mutaties (<code>zendNotificatie</code> en <code>zendMelding</code>); het generieke schema staat in <a href="https://github.com/iStandaarden/iWlz-generiek">iWlz-generiek</a>.</p>
+<p>Het netwerkmodel ondersteunt het hele iWlz-ketenproces. Daarvoor moet een ketenpartij soms relevante informatie ontvangen. Zo komt de voortgang van de zorglevering niet in gevaar. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/">Afsprakenstelsel iWlz &gt; Notificeren en Melden</a>. Notificeren en melden zijn technisch identiek opgebouwd als GraphQL-mutaties (<code>zendNotificatie</code> en <code>zendMelding</code>); het generieke schema staat in <a href="https://github.com/iStandaarden/iWlz-generiek">iWlz-generiek</a>.</p>
 <h4 id="261-notificaties-ontvangen">2.6.1 Notificaties ontvangen<a class="headerlink" href="#261-notificaties-ontvangen" title="Permanent link">¶</a></h4>
 <p>Een notificatie wijst een deelnemer van het netwerkmodel op nieuwe of gewijzigde informatie die relevant is voor die deelnemer. Aan de hand van de inhoud van de notificatie weet je wat er speelt en doe je een gerichte raadpleging op het register.</p>
 <p>Een zorgaanbieder ontvangt notificaties uit het <strong>Bemiddelingsregister</strong>, en op termijn uit het <strong>Leveringsregister</strong>. Daarmee kun je informatie in het Bemiddelingsregister raadplegen, en via het daarin opgehaalde <code>wlzIndicatieID</code> ook het Indicatieregister (zie §2.7). Je ontvangt geen notificaties uit het Indicatieregister; de twee indicatie-notificaties gaan naar het zorgkantoor.</p>
@@ -1218,7 +1218,7 @@ Figuur 2 - Autorisatie en raadplegen via de PEP<p></p>
 </table>
 <p>Deze notificatie ontvang je als er voor jouw instelling een verzoek (<code>VerzoekAanbieder</code>) is opgenomen door een aanbieder met de regierol.</p>
 <h4 id="262-notificeren-verzenden-van-een-notificatie">2.6.2 Notificeren: verzenden van een notificatie<a class="headerlink" href="#262-notificeren-verzenden-van-een-notificatie" title="Permanent link">¶</a></h4>
-<p>Met de dienst <strong>Notificeren</strong> breng je een deelnemer op de hoogte dat er voor die deelnemer relevante informatie beschikbaar is. Voor de inrichting zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#3-notificaties">Notificeren en Melden, 3. Notificaties</a>.</p>
+<p>Met de dienst <strong>Notificeren</strong> breng je een deelnemer op de hoogte dat er voor die deelnemer relevante informatie beschikbaar is. Voor de inrichting zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#3-notificaties">Afsprakenstelsel iWlz &gt; Notificeren en Melden, 3. Notificaties</a>.</p>
 <p>Als zorgaanbieder verstuur je notificaties wanneer je gegevens registreert in het Leveringsregister. De volledige lijst staat in <a href="https://github.com/iStandaarden/iWlz-levering/tree/Leveringsregister-1/notificaties">Notificaties Leveringsregister</a>. Op hoofdlijnen:</p>
 <ul>
 <li>Aan het zorgkantoor: nieuwe, gewijzigde en verwijderde <code>LEVERINGPERIODE</code>, <code>BEHANDELINGPERIODE</code>, <code>UITSTELPERIODE</code> en <code>AFSTEL</code>, en <code>NIEUW_VERZOEK_ZORGKANTOOR</code>.</li>
@@ -1229,11 +1229,11 @@ Figuur 2 - Autorisatie en raadplegen via de PEP<p></p>
 <p>De notificatie die het leveringsproces voor jou start (een nieuwe Bemiddelingspecificatie/toewijzing) komt uit het Bemiddelingsregister, niet uit het Leveringsregister.</p>
 </div>
 <h4 id="263-melden">2.6.3 Melden<a class="headerlink" href="#263-melden" title="Permanent link">¶</a></h4>
-<p>Andersom kun je de bronhouder voorzien van nieuwe informatie. Dat heet <strong>Melden</strong> (deelnemer naar bronhouder). Voor de inrichting zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#4-meldingen">Notificeren en Melden, 4. Meldingen</a>.</p>
+<p>Andersom kun je de bronhouder voorzien van nieuwe informatie. Dat heet <strong>Melden</strong> (deelnemer naar bronhouder). Voor de inrichting zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#4-meldingen">Afsprakenstelsel iWlz &gt; Notificeren en Melden, 4. Meldingen</a>.</p>
 <p>In de eerste implementatie is alleen de <strong>foutmelding</strong> uitgewerkt (<code>eventType: IWLZFOUTMELDING</code>). Deze foutmelding vervangt het oude foutbericht uit het estafettemodel (zie §2.10). Meldingen vervangen op dit moment alleen foutberichten. Daarom registreert alleen de bronhouder een melding-endpoint. Word je zelf bronhouder van het Leveringsregister, dan registreer je daarvoor een melding-endpoint (zie §2.4).</p>
 <h3 id="27-inrichten-raadplegen">2.7 Inrichten Raadplegen<a class="headerlink" href="#27-inrichten-raadplegen" title="Permanent link">¶</a></h3>
-<p>Je raadpleegt een register met een GraphQL-query. Als de raadpleging aan de autorisatie en aan het toegestane patroon voldoet, ontvang je de gegevens terug. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/">Raadplegen</a> en <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/#graphql-over-http">GraphQL over HTTP</a>.</p>
-<p>Per register zijn er raadpleeg-use-cases met bijbehorende query-templates. Wijkt je query af van dit patroon, dan keurt de resource-server de query af. De use-cases vind je via de <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/#uitwisselprofielen">Uitwisselprofielen</a>.</p>
+<p>Je raadpleegt een register met een GraphQL-query. Als de raadpleging aan de autorisatie en aan het toegestane patroon voldoet, ontvang je de gegevens terug. Voor meer informatie zie <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/raadplegen/">Afsprakenstelsel iWlz &gt; Raadplegen</a> en <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/#graphql-over-http">Afsprakenstelsel iWlz &gt; GraphQL over HTTP</a>.</p>
+<p>Per register zijn er raadpleeg-use-cases met bijbehorende query-templates. Wijkt je query af van dit patroon, dan keurt de resource-server de query af. De use-cases vind je via de <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/#uitwisselprofielen">Afsprakenstelsel iWlz &gt; Uitwisselprofielen</a>.</p>
 <p><strong>De raadpleeg-keten voor de zorgaanbieder.</strong> De toegang tot het Indicatieregister loopt via het Bemiddelingsregister: uit het Bemiddelingsregister haal je het <code>wlzIndicatieID</code> (de sleutel), en de bemiddelingspecificatie waarin jouw instelling staat is tegelijk de autorisatiegrondslag voor de indicatie-raadpleging.</p>
 <p></p><pre class="mermaid-zoom"><code>---
 config:
@@ -1271,7 +1271,7 @@ Figuur 3 - Raadpleeg-keten zorgaanbieder: Bemiddelingsregister naar Indicatiereg
 <li>Indicatieregister: <code>QIR-0002-ZA</code> (Wlz-indicatie op basis van <code>wlzIndicatieID</code>).</li>
 <li>Leveringsregister: <code>QLR-0001-ZA</code>, <code>QLR-0001_1-ZA</code>, <code>QLR-0001_2_ZA</code> (levering), <code>QLR-0002-ZA</code> (VerzoekAanbieder).</li>
 </ul>
-<p>Let bij het bouwen op de eisen uit <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/#graphql-over-http">GraphQL over HTTP</a> en §2.10.</p>
+<p>Let bij het bouwen op de eisen uit <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/#graphql-over-http">Afsprakenstelsel iWlz &gt; GraphQL over HTTP</a> en §2.10.</p>
 <h3 id="28-inrichten-van-het-leveringsregister">2.8 Inrichten van het Leveringsregister<a class="headerlink" href="#28-inrichten-van-het-leveringsregister" title="Permanent link">¶</a></h3>
 <p>Het <a href="https://www.istandaarden.nl/algemeen/over-leveringsregister-1-0">Leveringsregister 1</a> is het register waarin je als zorgaanbieder de zorglevering registreert. Het vervangt de berichten <strong>AW35</strong> (aanvang) en <strong>AW39</strong> (mutatie en beëindiging, inclusief de aanvraag aangepaste toewijzing).</p>
 <div class="admonition warning">
@@ -1296,15 +1296,15 @@ Figuur 3 - Raadpleeg-keten zorgaanbieder: Bemiddelingsregister naar Indicatiereg
 <h3 id="210-foutafhandeling">2.10 Foutafhandeling<a class="headerlink" href="#210-foutafhandeling" title="Permanent link">¶</a></h3>
 <p>Het retourbericht uit het estafettemodel (AW34/AW36/AW310) vervalt. Foutafhandeling verloopt nu langs twee lijnen:</p>
 <ol>
-<li><strong>Synchrone respons op de aanroep.</strong> Volg de eisen uit <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/">GraphQL over HTTP</a>:</li>
+<li><strong>Synchrone respons op de aanroep.</strong> Volg de eisen uit <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/graphql_over_http/">Afsprakenstelsel iWlz &gt; GraphQL over HTTP</a>:</li>
 <li>Verstuur requests via HTTP POST met <code>Content-Type: application/json</code>.</li>
 <li>Het verplichte response-mediatype is <code>application/graphql-response+json</code>. Vraag je <code>application/json</code> in de accept-header, dan krijg je een <code>406 Not Acceptable</code>.</li>
 <li>Een <code>200 OK</code> kan zowel <code>data</code> als <code>errors</code> bevatten (partieel resultaat); een volledige fout levert een 4xx.</li>
 <li><strong>Foutmelding via Melden.</strong> De bronhouder geeft inhoudelijke regelfouten terug als foutmelding met <code>eventType: IWLZFOUTMELDING</code>. Waarbij het onderwerp verwijst naar de overtreden gegevensregel- of restrictiecode.</li>
 </ol>
-<p>Daarnaast definieert het <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/">nID netwerkstelsel</a> de autorisatie-/toegangsfouten (onder andere 403 bij ontbrekende grondslag of niet-passende scope).</p>
+<p>Daarnaast definieert het <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/">Afsprakenstelsel iWlz &gt; nID netwerkstelsel</a> de autorisatie-/toegangsfouten (onder andere 403 bij ontbrekende grondslag of niet-passende scope).</p>
 <h3 id="211-logging-en-tracing">2.11 Logging en tracing<a class="headerlink" href="#211-logging-en-tracing" title="Permanent link">¶</a></h3>
-<p>Je houdt als deelnemer een auditlogboek bij (zie nID netwerkstelsel). De PEP zet bij het doorzetten naar de resource-server een claims-header mee, die de resource-server voor logging kan gebruiken. Tracelogging is uitgewerkt in het artikel <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/it-infrastructuur/logging/">Logging</a>. </p>
+<p>Je houdt als deelnemer een auditlogboek bij (zie nID netwerkstelsel). De PEP zet bij het doorzetten naar de resource-server een claims-header mee, die de resource-server voor logging kan gebruiken. Tracelogging is uitgewerkt in het artikel <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/it-infrastructuur/logging/">Afsprakenstelsel iWlz &gt; Logging</a>. </p>
 <p>Voeg aan elk request dat je binnen het netwerkmodel naar een andere dienst stuurt twee headers toe, conform de <a href="https://github.com/openzipkin/b3-propagation">B3 Propagation-standaard</a>:
   - <code>X-B3-TraceId</code>: 16 bytes (32 hexadecimale tekens, lowercase), niet uitsluitend nullen, uniek per ketenverzoek.
   - <code>X-B3-SpanId</code>: 8 bytes (16 hexadecimale tekens, lowercase), uniek per verwerkingsstap.
@@ -1316,7 +1316,7 @@ Figuur 3 - Raadpleeg-keten zorgaanbieder: Bemiddelingsregister naar Indicatiereg
   <aside class="md-source-file">
     <span class="md-source-file__fact">
       Laatst geüpdatet:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 november 2026 18:51:37 CET">12 november 2026</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 november 2026 13:20:25 CET">16 november 2026</span>
     </span>
   </aside>
 
