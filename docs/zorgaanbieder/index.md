@@ -7,6 +7,7 @@
     - **Wat verandert er** beschrijft wat er verandert ten opzichte van het estafettemodel: het procesconcept, de inhoudelijke wijzigingen in het informatiemodel, en de gegevensmapping op hoofdlijnen.
     - **Implementatie** beschrijft de implementatiestappen in de aanbevolen volgorde.
     - **Testen** geeft handvaten voor een ketentest.  
+    - **Cheat sheet** een samenvattend overzicht van de implementatiestappen.
 
 
 ## Inleiding
@@ -17,12 +18,12 @@ Het **Afsprakenstelsel iWlz-netwerkmodel** beschrijft de afspraken, architectuur
 
 **Neem voor implementatie in ieder geval kennis van de volgende artikelen uit het Afsprakenstelsel iWlz:**
 
-- [Introductiepagina](https://istandaarden.github.io/Afsprakenstelsel-iWlz/)
-- [Achtergrond en toelichting](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/inleiding/achtergrond_toelichting/)
-- [Randvoorwaarden](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/randvoorwaarden/)
-- [Ontwerpkeuzes](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/ontwerpkeuzes/)
-- [Uitwisselprofiel Indicatie](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/)
-- [Uitwisselprofiel Bemiddeling](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/)
+- [Afsprakenstelsel iWlz > Introductiepagina](https://istandaarden.github.io/Afsprakenstelsel-iWlz/)
+- [Afsprakenstelsel iWlz > Achtergrond en toelichting](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/inleiding/achtergrond_toelichting/)
+- [Afsprakenstelsel iWlz > Randvoorwaarden](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/randvoorwaarden/)
+- [Afsprakenstelsel iWlz > Ontwerpkeuzes](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/organisatiebeleid/ontwerpkeuzes/)
+- [Afsprakenstelsel iWlz > Uitwisselprofiel Indicatie](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/)
+- [Afsprakenstelsel iWlz > Uitwisselprofiel Bemiddeling](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/)
 
 Zodra het Uitwisselprofiel Levering gereed is, geldt deze leeslijst ook daarvoor. Dit profiel is nu nog in ontwikkeling.
 
