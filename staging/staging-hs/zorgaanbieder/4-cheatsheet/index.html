@@ -86,6 +86,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#samenvatting-implementatiestappen" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -652,6 +657,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -699,6 +706,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -724,44 +733,97 @@
   
 
 
-  <h1>Cheat sheet</h1>
+<h1 id="samenvatting-implementatiestappen">Samenvatting implementatiestappen<a class="headerlink" href="#samenvatting-implementatiestappen" title="Permanent link">¶</a></h1>
+<style>
+  .mermaid-zoom-blok { --mermaid-zoom-hoogte: 2000px; }
+</style>
 
-<ol>
-<li>
-<p><strong>Aansluiten</strong> beschrijft VECOZO-aansluiting, systeemcertificaten (test en productie), IP-registratie, en endpoint-registratie in het tijdelijk adresboek. <br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#22-aansluiten-bij-vecozo">§2.2</a>, <a href="../2-implementatiestappen/#23-aansluiten-op-het-iwlz-netwerk">§2.3</a>, <a href="../2-implementatiestappen/#24-aansluiten-op-het-tijdelijk-adresboek">§2.4</a>.</p>
-</li>
-<li>
-<p><strong>Autoriseren</strong> beschrijft tokens aanvragen namens de zorgaanbieder op AGB-basis (actor), met de juiste scopes en audience; al het verkeer loopt via de PEP.<br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#25-autorisatie-inrichten">§2.5</a>.</p>
-</li>
-<li><strong>Notificaties ontvangen</strong> beschrijft resource-endpoint voor notificaties uit het Bemiddelingsregister, en op termijn uit het Leveringsregister. <br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#261-notificaties-ontvangen">§2.6.1</a>.</li>
-<li><strong>Raadplegen</strong> beschrijft een GraphQL-client voor de keten Bemiddelingsregister -&gt; <code>wlzIndicatieID</code> -&gt; Indicatieregister, conform de query-templates en GraphQL-over-HTTP.<br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#27-inrichten-raadplegen">§2.7</a>.</li>
-<li><strong>Leveringsregister vullen en notificeren</strong> beschrijft de zorglevering registreren en de bijbehorende notificaties versturen.<br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#262-notificeren-verzenden-van-een-notificatie">§2.6.2</a>, <a href="../2-implementatiestappen/#28-inrichten-van-het-leveringsregister">§2.8</a>, <a href="../2-implementatiestappen/#29-initieel-vullen-van-het-leveringsregister">§2.9</a>.</li>
-<li><strong>Melden</strong> beschrijft foutmeldingen afhandelen; alleen de bronhouder registreert een melding-endpoint.<br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#263-melden">§2.6.3</a>.</li>
-<li><strong>Foutafhandeling</strong> beschrijft synchrone respons en foutmelding in plaats van het retourbericht.<br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#210-foutafhandeling">§2.10</a>.</li>
-<li><strong>Tracelogging</strong> beschrijft <code>X-B3-TraceId</code> en <code>X-B3-SpanId</code>.<br>
-   Zie: Implementatiestappen &gt; <a href="../2-implementatiestappen/#211-logging-en-tracing">§2.11</a>.</li>
-<li><strong>Testen</strong> beschrijft testomgeving, testcertificaat, fictieve BSN's en een onboarding-testdataset.<br>
-    Zie: Testen &gt; <a href="../3-testen/">§3</a>.</li>
-<li>
-<p><strong>Berichten uitfaseren</strong> beschrijft genereren en verwerken van AW33/AW34, AW35/AW36 en AW39/AW310 vervalt.  </p>
+<pre class="mermaid-zoom"><code>---
+config:
+  layout: dagre
+---
+flowchart TD
+    subgraph FUNDERING["Fundering"]
+        subgraph S1["1. Aansluiten"]
+            A1["&lt;b&gt;VECOZO-aansluiting&lt;/b&gt;&lt;br/&gt;Systeemcertificaten (test + productie)&lt;br/&gt;&lt;i&gt;§2.2&lt;/i&gt;"]
+            A2["&lt;b&gt;IWlz-netwerk&lt;/b&gt;&lt;br/&gt;IP-registratie&lt;br/&gt;&lt;i&gt;§2.3&lt;/i&gt;"]
+            A3["&lt;b&gt;Tijdelijk adresboek&lt;/b&gt;&lt;br/&gt;Endpoint-registratie&lt;br/&gt;&lt;i&gt;§2.4&lt;/i&gt;"]
+            A1 --&gt; A2 --&gt; A3
+        end
+        B["&lt;b&gt;2. Autoriseren&lt;/b&gt;&lt;br/&gt;Tokens namens zorgaanbieder (AGB, actor)&lt;br/&gt;Juiste scopes en audience&lt;br/&gt;Verkeer via de PEP&lt;br/&gt;&lt;i&gt;§2.5&lt;/i&gt;"]
+        A3 --&gt; B
+    end
+
+    subgraph FUNCTIONEEL["Functionele inrichting"]
+        C["&lt;b&gt;3. Notificaties ontvangen&lt;/b&gt;&lt;br/&gt;Resource-endpoint voor notificaties&lt;br/&gt;Bemiddelingsregister, later Leveringsregister&lt;br/&gt;&lt;i&gt;§2.6.1&lt;/i&gt;"]
+        D["&lt;b&gt;4. Raadplegen&lt;/b&gt;&lt;br/&gt;GraphQL-client&lt;br/&gt;Bemiddelingsregister → wlzIndicatieID → Indicatieregister&lt;br/&gt;Query-templates, GraphQL-over-HTTP&lt;br/&gt;&lt;i&gt;§2.7&lt;/i&gt;"]
+        subgraph S5["5. Leveringsregister vullen en notificeren"]
+            E1["&lt;b&gt;Notificatie verzenden&lt;/b&gt;&lt;br/&gt;Notificaties versturen&lt;br/&gt;&lt;i&gt;§2.6.2&lt;/i&gt;"]
+            E2["&lt;b&gt;Leveringsregister inrichten&lt;/b&gt;&lt;br/&gt;Zorglevering registreren&lt;br/&gt;&lt;i&gt;§2.8&lt;/i&gt;"]
+            E3["&lt;b&gt;Initieel vullen&lt;/b&gt;&lt;br/&gt;Leveringsregister vullen&lt;br/&gt;&lt;i&gt;§2.9&lt;/i&gt;"]
+            E1 --&gt; E2 --&gt; E3
+        end
+        F["&lt;b&gt;6. Melden&lt;/b&gt;&lt;br/&gt;Foutmeldingen afhandelen&lt;br/&gt;Alleen bronhouder registreert melding-endpoint&lt;br/&gt;&lt;i&gt;§2.6.3&lt;/i&gt;"]
+        C --&gt; D --&gt; E1
+        E3 --&gt; F
+    end
+
+    subgraph DWARS["Overkoepelend"]
+        G["&lt;b&gt;7. Foutafhandeling&lt;/b&gt;&lt;br/&gt;Synchrone respons en foutmelding&lt;br/&gt;i.p.v. retourbericht&lt;br/&gt;&lt;i&gt;§2.10&lt;/i&gt;"]
+        H["&lt;b&gt;8. Tracelogging&lt;/b&gt;&lt;br/&gt;X-B3-TraceId&lt;br/&gt;X-B3-SpanId&lt;br/&gt;&lt;i&gt;§2.11&lt;/i&gt;"]
+    end
+
+    subgraph AFRONDING["Afronding"]
+        I["&lt;b&gt;9. Testen&lt;/b&gt;&lt;br/&gt;Testomgeving en testcertificaat&lt;br/&gt;Fictieve BSN's&lt;br/&gt;Onboarding-testdataset&lt;br/&gt;&lt;i&gt;§3&lt;/i&gt;"]
+        J["&lt;b&gt;10. Berichten uitfaseren&lt;/b&gt;&lt;br/&gt;AW33/AW34 genereren en verwerken&lt;br/&gt;AW35/AW36 genereren en verwerken&lt;br/&gt;AW39/AW310 vervalt"]
+        I --&gt; J
+    end
+
+    B --&gt; C
+    F --&gt; I
+    G -.-&gt; C
+    G -.-&gt; D
+    G -.-&gt; E1
+    G -.-&gt; F
+    H -.-&gt; C
+    H -.-&gt; D
+    H -.-&gt; E1
+    H -.-&gt; F
+
+    click A1 href "../2-implementatiestappen/#22-aansluiten-bij-vecozo" "Naar §2.2 Aansluiten bij VECOZO" _blank
+    click A2 href "../2-implementatiestappen/#23-aansluiten-op-het-iwlz-netwerk" "Naar §2.3 Aansluiten op het IWlz-netwerk" _blank
+    click A3 href "../2-implementatiestappen/#24-aansluiten-op-het-tijdelijk-adresboek" "Naar §2.4 Aansluiten op het tijdelijk adresboek" _blank
+    click B href "../2-implementatiestappen/#25-autorisatie-inrichten" "Naar §2.5 Autorisatie inrichten" _blank
+    click C href "../2-implementatiestappen/#261-notificaties-ontvangen" "Naar §2.6.1 Notificaties ontvangen" _blank
+    click D href "../2-implementatiestappen/#27-inrichten-raadplegen" "Naar §2.7 Inrichten raadplegen" _blank
+    click E1 href "../2-implementatiestappen/#262-notificeren-verzenden-van-een-notificatie" "Naar §2.6.2 Notificeren" _blank
+    click E2 href "../2-implementatiestappen/#28-inrichten-van-het-leveringsregister" "Naar §2.8 Inrichten van het Leveringsregister" _blank
+    click E3 href "../2-implementatiestappen/#29-initieel-vullen-van-het-leveringsregister" "Naar §2.9 Initieel vullen" _blank
+    click F href "../2-implementatiestappen/#263-melden" "Naar §2.6.3 Melden" _blank
+    click G href "../2-implementatiestappen/#210-foutafhandeling" "Naar §2.10 Foutafhandeling" _blank
+    click H href "../2-implementatiestappen/#211-logging-en-tracing" "Naar §2.11 Logging en tracing" _blank
+    click I href "../3-testen/" "Naar §3 Testen" _blank
+
+    classDef fundering fill:#e8f1fb,stroke:#2b6cb0,color:#1a365d
+    classDef functioneel fill:#e6f6ec,stroke:#2f855a,color:#1c4532
+    classDef dwars fill:#fff4e0,stroke:#c05621,color:#7b341e
+    classDef afronding fill:#f3e8fb,stroke:#6b46c1,color:#44337a
+    class A1,A2,A3,B fundering
+    class C,D,E1,E2,E3,F functioneel
+    class G,H dwars
+    class I,J afronding</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Let op: tijdens de overgangsfase: wanneer niet alle aanbieders zijn aangesloten op het netwerkmodel, blijft <a href="https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/silvester/">Silvester</a> voor niet-aangesloten partijen AW33-berichten genereren. <br>
 Zie: Wat verandert er &gt; <a href="../1-wat-verandert-er/#11-van-estafette-naar-netwerk">§1.1</a>, en : Implementatiestappen &gt; <a href="../2-implementatiestappen/#21-controleer-of-je-systeem-netwerkmodel-proof-is">§2.1</a>.</p>
-</li>
-</ol>
+</div>
 
 
 
   <aside class="md-source-file">
     <span class="md-source-file__fact">
       Laatst geüpdatet:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 november 2026 18:51:37 CET">12 november 2026</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 november 2026 13:06:36 CET">16 november 2026</span>
     </span>
   </aside>
 
@@ -846,6 +908,8 @@ Zie: Wat verandert er &gt; <a href="../1-wat-verandert-er/#11-van-estafette-naar
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
         <script src="../../assets/javascripts/mermaid-zoom.js"></script>
+      
+        <script src="../../assets/javascripts/external-links.js"></script>
       
     
   
