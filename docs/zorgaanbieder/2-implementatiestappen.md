@@ -16,7 +16,10 @@ Gebruik van het iWlz-netwerk vereist aansluiting bij VECOZO. De vereisten staan 
 
 Softwareleveranciers en zorginkoopbemiddelaars hoeven niet zelf NEN 7510-gecertificeerd te zijn en hoeven geen eigen AGB-code aan te leveren; de zorgorganisatie die hun software gebruikt blijft verantwoordelijk.
 
-Een organisatie die al via een OVK bij VECOZO is aangesloten, moet vooralsnog een nieuw systeemcertificaat aanvragen voor het iWlz-netwerk. Het bestaande systeemcertificaat kun je niet hergebruiken. De geregistreerde IP-adressen en de toestemmingsverklaring kun je mogelijk wel hergebruiken. Of hergebruik van het certificaat later toch mogelijk wordt, toetsen we nog. Let op: voor het iWlz-netwerk heb je een apart test- en productiecertificaat nodig. Ook meld je je resource-server-endpoints aan (zie §2.3 en §2.4).
+Een organisatie die al via een OVK bij VECOZO is aangesloten, hoeft *geen* nieuw systeemcertificaat aan te vragen voor het iWlz-netwerk. Het bestaande systeemcertificaat kun je hergebruiken. De geregistreerde IP-adressen kun je ook hergebruiken. Of hergebruik van de toestemmingsverklaring mogelijk wordt, toetsen we nog. 
+
+!!! warning "Let op:"
+    Voor het iWlz-netwerk heb je een apart test- en productiecertificaat nodig. Meldt ook de resource-server-endpoints aan (zie §2.3 en §2.4).
 
 ### 2.3 Aansluiten op het iWlz-netwerk
 
@@ -51,23 +54,50 @@ De softwareleverancier van de zorgaanbieder moet voor aansluiting op het Bemidde
 - `tokenEndpoint.tokenEndpointuri` (de autorisatieserver)
 - `systeemrollen[]` met een `systeemrolcode` en een `resourceEndpoint.resourceEndpointuri` (de eigenlijke dienst)
 
+Voorbeeld van een adres-entry voor een notificatie endpoint van een zorgaanbieder (Niet normatief):
 ```json
-{ 
-    "electronicServices": [ 
-        { 
-            "description": "TEST OMGEVING Voor het raadplegen van het Wlz Indicatieregister", 
-            "gegevensdienstId": "CIZ_INDICATIE_TST", 
-            "weergavenaam": "TEST OMGEVING - Wlz Indicatieregister", "authorizationEndpoint": { "authorizationEndpointuri": "https://<pep-url>/" }, 
-            "tokenEndpoint": { "tokenEndpointuri": "https://<autorisatieserver-url>/" },
-            "systeemrollen": [ 
-                { "systeemrolcode": "Register", 
-                "resourceEndpoint": { "resourceEndpointuri": "https://<graphql-endpoint>/" } 
-                 } 
-            ] 
-        } 
-    ] 
+{
+  "_comment": "iWlz service lijst - versie 0.1 - 12-11-2024",
+  "electronicServices": [
+    {
+      "description": "TEST OMGEVING Voor het notificeren van zorgaanbieder 12121212",
+      "gegevensdienstId": "12121212_NOTIFICATIE_TST",
+      "weergavenaam": "TEST OMGEVING - notificaties voor 12121212",
+      "authorizationEndpoint": {
+        "_comment": "TEST OMGEVING - PEP Endpoint",
+        "authorizationEndpointuri": "https://fictief.PEP.adres/"
+      },
+      "tokenEndpoint": {
+        "_comment": "TEST OMGEVING - Autorisatieserver",
+        "tokenEndpointuri": "https://fictief.autorisatie.punt"
+      },
+      "systeemrollen": [
+        {
+          "systeemrolcode": "NOTIFICATIE_BEMIDDELING",
+          "resourceEndpoint": {
+            "_comment": "12121212 notificatie endpoint voor notificaties uit Bemiddelingsregister",
+            "resourceEndpointuri": "https://test.notificatie.end.punt",
+            "period": { "start": "2026-10-21T09:00:00.000Z" }
+          }
+        }
+      ]
+    }
+  ]
 }
+
 ```
+
+Op dit moment zijn de autorisatieserver `tokenEndpoint` en de toegangscontrole `authorizationEndpoint` centraal en is de endpoint vulling daarvan daarom vast. Het `resourceEndpoint` is in handen van de bronhouder en heeft momenteel vier rollen.  
+
+| systeemrolcode |	Betekenis |
+| :-- | :-- |
+| REGISTER | Endpoint voor raadplegen register | 
+| MELDING	| Endpoint voor iWlz (Fout-)meldingen | 
+| NOTIFICATIE_INDICATIE	| Notificatie endpoint voor het ontvangen van notificatie uit Indicatieregister | 
+| NOTIFICATIE_BEMIDDELING	| Notificatie endpoint voor het ontvangen van notificaties uit Bemiddelingsregister | 
+
+Lees de volledige beschrijving van het adresboek op: [github.com/iStandaarden/iWlz-adresboek-public](https://github.com/iStandaarden/iWlz-adresboek-public) 
+
 !!! info
     Registreer per AGB-code de relevante endpoints in het tijdelijk adresboek. Neem hiervoor contact op met iStandaarden.
 
@@ -113,9 +143,11 @@ sequenceDiagram
 ```
 Figuur 2 - Autorisatie en raadplegen via de PEP
 
-**Acteren namens de zorgaanbieder (AGB-actor).** Een softwareleverancier of intermediair handelt namens de zorgaanbieder via het actor-mechanisme. Een zorgaanbieder wordt geïdentificeerd met een AGB-code (een zorgkantoor met een UZOVI-code). In het access-token staat de zorgaanbieder daarom als `sub = agbcode:012345678`. Het token is maximaal één uur geldig. Voor meer informatie zie [Afsprakenstelsel iWlz > nID netwerkstelsel, 3. Autoriseren](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/#3-autoriseren).
+**Acteren namens de zorgaanbieder (AGB-actor).**  
+Een softwareleverancier of intermediair handelt namens de zorgaanbieder via het actor-mechanisme. Een zorgaanbieder wordt geïdentificeerd met een AGB-code (een zorgkantoor met een UZOVI-code). In het access-token staat de zorgaanbieder daarom als `sub = agbcode:012345678`. Het token is maximaal één uur geldig. Voor meer informatie zie [Afsprakenstelsel iWlz > nID netwerkstelsel, 3. Autoriseren](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/nid_netwerkstelsel/#3-autoriseren).
 
-**Scopes.** Een scope is opgebouwd uit het resource-type en de benodigde toegang. Voor de zorgaanbieder zijn dit de relevante scopes:
+**Scopes.**  
+Een scope is opgebouwd uit het resource-type en de benodigde toegang. Voor de zorgaanbieder zijn dit de relevante scopes:
 
 | **Doel** | **Scope** |
 | --- | --- |
@@ -126,12 +158,13 @@ Figuur 2 - Autorisatie en raadplegen via de PEP
 
 De specifieke scopes staan ook in de uitwisselprofielen: [Afsprakenstelsel iWlz > Uitwisselprofiel Indicatie, §8.2](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_indicatie/#82-nid-netwerkstelsel-scopes) en [Afsprakenstelsel iWlz > Uitwisselprofiel Bemiddeling, §8.2](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/uitwisselprofiel/uitwisselprofiel_bemiddeling/#82-nid-netwerkstelsel-scopes). Gebruik je een scope die niet is toegekend, dan krijg je "Access denied, invalid scope".
 
-**Audience en PEP.** Je moet precies één audience opgeven, als geldige https-URL. De audience is de afgeschermde `resourceEndpointuri` van de resource-server, die alleen de Policy Enforcement Point (PEP) van die resource-server vertrouwt. Je raadpleegt het register dus nooit rechtstreeks: al het verkeer loopt via de PEP. De PEP valideert de grondslag (samen met de PDP) en zet het verzoek door naar de resource-server. De audience-URL herken je in het adresboek aan de tag `resourceEndpointuri`.
+**Audience en PEP.**  
+Je moet precies één audience opgeven, als geldige https-URL. De audience is de afgeschermde `resourceEndpointuri` van de resource-server, die alleen de Policy Enforcement Point (PEP) van die resource-server vertrouwt. Je raadpleegt het register dus nooit rechtstreeks: al het verkeer loopt via de PEP. De PEP valideert de grondslag (samen met de PDP) en zet het verzoek door naar de resource-server.  
 
-De PEP-endpoints zijn:
+De audience-URL herken je in het adresboek aan de tag `resourceEndpointuri`.  
+Het PEP-endpoint herken je in het adresboek aan de tag `authorizationEndpointuri`
 
-- Testomgeving: `https://tst-api.vecozo.nl/tst/netwerkmodel/v3/pep`
-- Productieomgeving: `https://api.vecozo.nl/netwerkmodel/v3/pep`
+
 
 ### 2.6 Inrichten Notificeren en Melden
 
@@ -141,41 +174,35 @@ Het netwerkmodel ondersteunt het hele iWlz-ketenproces. Daarvoor moet een ketenp
 
 Een notificatie wijst een deelnemer van het netwerkmodel op nieuwe of gewijzigde informatie die relevant is voor die deelnemer. Aan de hand van de inhoud van de notificatie weet je wat er speelt en doe je een gerichte raadpleging op het register.
 
-Een zorgaanbieder ontvangt notificaties uit het **Bemiddelingsregister**, en op termijn uit het **Leveringsregister**. Daarmee kun je informatie in het Bemiddelingsregister raadplegen, en via het daarin opgehaalde `wlzIndicatieID` ook het Indicatieregister (zie §2.7). Je ontvangt geen notificaties uit het Indicatieregister; de twee indicatie-notificaties gaan naar het zorgkantoor.
+Een zorgaanbieder ontvangt notificaties uit het **Bemiddelingsregister**, en op termijn uit het **Leveringsregister**. Daarmee kun je informatie in het Bemiddelingsregister raadplegen, en via het daarin opgehaalde `wlzIndicatieID` ook het Indicatieregister (zie §2.7). Je ontvangt geen notificaties uit het Indicatieregister.
 
 Om notificaties te ontvangen, moet je een notificatie-endpoint registreren (zie §2.4).
 
-**Te ontvangen notificaties uit het Bemiddelingsregister** (zie [iWlz-bemiddeling, Bemiddelingsregister-1/notificaties](https://github.com/iStandaarden/iWlz-bemiddeling/blob/Bemiddelingsregister-1/notificaties/README.md)):
+Op hoofdlijnen: 
 
-| **Notificatie** | **Type** |
-| --- | --- |
-| `NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER` | Verplicht |
-| `GEWIJZIGDE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER` | Verplicht |
-| `VERWIJDERDE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER` | Verplicht |
-| `NIEUWE_REGIEHOUDER_ZORGAANBIEDER` | Verplicht |
-| `GEWIJZIGDE_REGIEHOUDER_ZORGAANBIEDER` | Verplicht |
-| `VERWIJDERDE_REGIEHOUDER_ZORGAANBIEDER` | Verplicht |
-| `INFORMATIEVE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER` | Verplicht |
+1. Te ontvangen notificaties uit het **Bemiddelingsregister**:  
+      1. Registratie van een nieuwe, gewijzigde of verwijderde bemiddelingspecificatie, daarmee kan de zorgaanbieder informatie over de zorgtoewijzing raadplegen uit het bemiddelingsregister.
+      2. Registratie van een nieuwe, gewijzigde of verwijderde regiehouder, waarmee de zorgaanbieder op de hoogte is van wijzigingen in de actuele coordinator zorg thuis of dossierhouder en de informatie kan raadplegen in het bemiddelingsregister.
+2. Te ontvangen notificatie uit het **Leveringsregister**:
+      1. Registratie van een verzoek voor een nieuwe of aangepaste toewijzing waar de zorgaanbieder bij betrokken is. Deze notificatie is afkomstig van de aanbieder met die regiehouder is en de regierol coordinator zorg thuis of dossierhouder heeft.
 
-**Te ontvangen notificatie uit het Leveringsregister** (zie [iWlz-levering, Leveringsregister-1/notificaties](https://github.com/iStandaarden/iWlz-levering/tree/Leveringsregister-1/notificaties)):
+!!! tip
+    Ga naar de **documentatie** en de **actuele lijst** van notificaties voor de zorgaanbieder naar [Documentatie Koppelvlakspecificaties](https://istandaarden.github.io/koppelvlakspecificatie-netwerkmodel/). 
 
-| **Notificatie** | **Type** |
-| --- | --- |
-| `NIEUW_VERZOEKAANBIEDER_AANBIEDER` | Verplicht |
+    Bijvoorbeeld de lijst met notificaties uit het Bemiddelingsregister 1.1 staat onder [Bemiddelingsregister > Bemiddelingsregister 1.1 > Notificaties](https://istandaarden.github.io/koppelvlakspecificatie-netwerkmodel/current/bemiddelingsregister/bemiddelingsregister-1_1/notificaties/#aan-zorgaanbieder)
 
-Deze notificatie ontvang je als er voor jouw instelling een verzoek (`VerzoekAanbieder`) is opgenomen door een aanbieder met de regierol.
 
 #### 2.6.2 Notificeren: verzenden van een notificatie
 
 Met de dienst **Notificeren** breng je een deelnemer op de hoogte dat er voor die deelnemer relevante informatie beschikbaar is. Voor de inrichting zie [Afsprakenstelsel iWlz > Notificeren en Melden, 3. Notificaties](https://istandaarden.github.io/Afsprakenstelsel-iWlz/current/applicatie/diensten/notificeren-en-melden/#3-notificaties).
 
-Als zorgaanbieder verstuur je notificaties wanneer je gegevens registreert in het Leveringsregister. De volledige lijst staat in [Notificaties Leveringsregister](https://github.com/iStandaarden/iWlz-levering/tree/Leveringsregister-1/notificaties). Op hoofdlijnen:
+Als zorgaanbieder verstuur je notificaties wanneer je gegevens registreert, wijzigt of verwijderd in het Leveringsregister. De volledige lijst staat in de documentatie van [Koppelvlakspecificatie Leveringsregister](https://istandaarden.github.io/koppelvlakspecificatie-netwerkmodel/current/leveringsregister/). 
+
+Op hoofdlijnen:
 
 - Aan het zorgkantoor: nieuwe, gewijzigde en verwijderde `LEVERINGPERIODE`, `BEHANDELINGPERIODE`, `UITSTELPERIODE` en `AFSTEL`, en `NIEUW_VERZOEK_ZORGKANTOOR`.
 - Aan een andere zorgaanbieder: `NIEUW_VERZOEKAANBIEDER_AANBIEDER` (zie ook §2.6.1).
 
-!!! info
-    De notificatie die het leveringsproces voor jou start (een nieuwe Bemiddelingspecificatie/toewijzing) komt uit het Bemiddelingsregister, niet uit het Leveringsregister.
 
 #### 2.6.3 Melden
 
